@@ -2,18 +2,55 @@ import { siteContent } from "../data/content";
 import { Mail, MapPin, Send, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
 
+const FORMSUBMIT_URL = "https://formsubmit.co/support@chenhsiai.com";
+
+const typeLabels: Record<string, string> = {
+  consulting: "服務諮詢",
+  partnership: "合作洽談",
+  other: "其他",
+};
+
 export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [error, setError] = useState<string | null>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setError(null);
+    const form = e.currentTarget;
+    const name = (form.querySelector("#name") as HTMLInputElement).value.trim();
+    const email = (form.querySelector("#email") as HTMLInputElement).value.trim();
+    const company = (form.querySelector("#company") as HTMLInputElement).value.trim();
+    const phone = (form.querySelector("#phone") as HTMLInputElement).value.trim();
+    const type = (form.querySelector("#type") as HTMLSelectElement).value;
+    const message = (form.querySelector("#message") as HTMLTextAreaElement).value.trim();
+
     setIsSubmitting(true);
-    // Simulate API call
-    setTimeout(() => {
-      setIsSubmitting(false);
+    try {
+      const res = await fetch(FORMSUBMIT_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          _subject: `網站聯絡表單：${name} - ${typeLabels[type] ?? type}`,
+          _replyto: email,
+          _template: "table",
+          name,
+          email,
+          company: company || "(未填)",
+          phone: phone || "(未填)",
+          需求類型: typeLabels[type] ?? type,
+          message: message || "(未填)",
+        }),
+      });
+      if (!res.ok) throw new Error("送出失敗，請稍後再試");
       setIsSuccess(true);
-    }, 1500);
+      form.reset();
+    } catch {
+      setError("無法送出表單，請稍後再試或直接寄信至 support@chenhsiai.com");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -85,7 +122,7 @@ export default function Contact() {
                     感謝您的聯繫，我們的專員將在兩個工作日內與您聯繫。
                   </p>
                   <button
-                    onClick={() => setIsSuccess(false)}
+                    onClick={() => { setIsSuccess(false); setError(null); }}
                     className="text-primary-light font-bold hover:underline"
                   >
                     發送另一則訊息
@@ -131,6 +168,12 @@ export default function Contact() {
                     <label htmlFor="message" className="block text-sm font-bold text-slate-300 mb-2">詳細說明</label>
                     <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none" placeholder="請簡述您的需求..."></textarea>
                   </div>
+
+                  {error && (
+                    <div className="p-4 rounded-xl bg-red-500/10 border border-red-500/30 text-red-300 text-sm">
+                      {error}
+                    </div>
+                  )}
 
                   <button
                     type="submit"

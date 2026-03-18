@@ -5,7 +5,7 @@ export default function CaseStudies() {
   const icons = [Building2, Ship, ShoppingBag, Sun];
   const caseImages = [
     "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80", // 法律：大量文件、效率感
-    "https://images.unsplash.com/photo-1763128516808-785e80c1dd68?auto=format&fit=crop&w=1600&q=80", // 航運：多螢幕、數據與系統
+    "https://images.unsplash.com/photo-1762163516269-3c143e04175c?auto=format&fit=crop&w=1600&q=80", // 航運：伺服器機架、數據系統（無人物）
     "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80", // 電商客服：客服耳麥、支援感
     "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80", // 商機篩選：太陽能
   ];

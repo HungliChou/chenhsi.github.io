@@ -29,7 +29,7 @@ export default function Layout() {
           <div className="flex justify-between h-20 items-center">
             <div className="flex-shrink-0 flex items-center">
               <Link to="/" className="flex items-center gap-2">
-                <img src="./logo.png" alt="宸希科技 Logo" className="h-10 w-auto" />
+                <img src="./logo.png" alt="宸希科技 Logo" className="h-10 w-auto bg-transparent" style={{ background: 'transparent' }} />
                 <span className="font-bold text-2xl text-white tracking-tight">
                   {siteContent.companyNameZh}
                 </span>
@@ -106,7 +106,7 @@ export default function Layout() {
           <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
             <div className="col-span-1 md:col-span-2">
               <div className="flex items-center gap-2 mb-6">
-                <img src="./logo.png" alt="宸希科技 Logo" className="h-8 w-auto" />
+                <img src="./logo.png" alt="宸希科技 Logo" className="h-8 w-auto bg-transparent" style={{ background: 'transparent' }} />
                 <span className="font-bold text-xl tracking-tight">
                   {siteContent.companyNameZh}
                 </span>

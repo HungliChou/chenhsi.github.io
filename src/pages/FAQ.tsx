@@ -1,6 +1,7 @@
 import { siteContent } from "../data/content";
 import { MessageCircleQuestion, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
@@ -66,9 +67,9 @@ export default function FAQ() {
             <p className="text-slate-400 mb-8">
               我們的專家團隊隨時準備為您解答任何關於企業 AI 導入的疑問。
             </p>
-            <a href="/contact" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)]">
+            <Link to="/contact" className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)]">
               聯絡我們
-            </a>
+            </Link>
           </div>
         </div>
       </section>

@@ -12,13 +12,12 @@ export default function Layout() {
     { name: "適用產業", path: "/industries" },
     { name: "客戶案例", path: "/case-studies" },
     { name: "關於我們", path: "/about" },
-    { name: "最新洞察", path: "/blog" },
+    // { name: "最新洞察", path: "/blog" },
   ];
 
   const footerLinks = [
-    { name: "客戶見證", path: "/testimonials" },
     { name: "常見問答", path: "/faq" },
-    { name: "招募資訊", path: "/careers" },
+    // { name: "招募資訊", path: "/careers" },
     { name: "聯絡我們", path: "/contact" },
   ];
 

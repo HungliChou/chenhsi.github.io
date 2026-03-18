@@ -10,12 +10,11 @@ import About from "./pages/About";
 import Services from "./pages/Services";
 import Industries from "./pages/Industries";
 import CaseStudies from "./pages/CaseStudies";
-import Testimonials from "./pages/Testimonials";
-import Blog from "./pages/Blog";
+// import Blog from "./pages/Blog";
 import FAQ from "./pages/FAQ";
 import Contact from "./pages/Contact";
 import Privacy from "./pages/Privacy";
-import Careers from "./pages/Careers";
+// import Careers from "./pages/Careers";
 
 export default function App() {
   return (
@@ -27,12 +26,11 @@ export default function App() {
           <Route path="services" element={<Services />} />
           <Route path="industries" element={<Industries />} />
           <Route path="case-studies" element={<CaseStudies />} />
-          <Route path="testimonials" element={<Testimonials />} />
-          <Route path="blog" element={<Blog />} />
+          {/* <Route path="blog" element={<Blog />} /> */}
           <Route path="faq" element={<FAQ />} />
           <Route path="contact" element={<Contact />} />
           <Route path="privacy" element={<Privacy />} />
-          <Route path="careers" element={<Careers />} />
+          {/* <Route path="careers" element={<Careers />} /> */}
         </Route>
       </Routes>
     </Router>

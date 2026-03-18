@@ -1,7 +1,15 @@
 import { siteContent } from "../data/content";
-import { Users, Target, Award, CheckCircle2 } from "lucide-react";
+import { Target, Award, MessageCircleQuestion, ChevronDown, ChevronUp } from "lucide-react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function About() {
+  const [openIndex, setOpenIndex] = useState<number | null>(0);
+
+  const toggleFAQ = (index: number) => {
+    setOpenIndex(openIndex === index ? null : index);
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
       {/* Hero */}
@@ -70,34 +78,61 @@ export default function About() {
         </div>
       </section>
 
-      {/* Stats & Trust */}
-      <section className="py-24 bg-slate-900 border-y border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center mb-20">
-            <div>
-              <p className="text-5xl font-black text-primary-light mb-4">{siteContent.trust_elements.metrics.projects_completed}+</p>
-              <p className="text-lg font-medium text-slate-400">成功專案交付</p>
-            </div>
-            <div>
-              <p className="text-5xl font-black text-primary-light mb-4">{siteContent.trust_elements.metrics.client_satisfaction}</p>
-              <p className="text-lg font-medium text-slate-400">客戶滿意度</p>
-            </div>
-            <div>
-              <p className="text-5xl font-black text-primary-light mb-4">50+</p>
-              <p className="text-lg font-medium text-slate-400">專業技術人才</p>
-            </div>
+      {/* FAQ */}
+      <section className="py-24 border-t border-white/10">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-14">
+            <h3 className="text-3xl font-black text-white">常見問答</h3>
+            <p className="text-slate-400 mt-4">
+              快速了解合作流程、時程與導入條件，若需要更細節的建議也歡迎直接聯繫我們。
+            </p>
           </div>
 
-          <div className="text-center max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold text-white mb-8">榮獲業界肯定</h3>
-            <div className="flex flex-wrap justify-center gap-6">
-              {siteContent.trust_elements.awards.map((award, idx) => (
-                <div key={idx} className="bg-slate-950 px-6 py-4 rounded-full border border-white/20 flex items-center gap-3">
-                  <CheckCircle2 className="text-cyan-400" size={20} />
-                  <span className="font-medium text-slate-200">{award}</span>
+          <div className="space-y-4">
+            {siteContent.faq.map((item, idx) => (
+              <div
+                key={idx}
+                className={`bg-slate-900 rounded-2xl border transition-all duration-300 ${
+                  openIndex === idx ? "border-primary shadow-md" : "border-white/20 hover:border-primary/50"
+                }`}
+              >
+                <button
+                  onClick={() => toggleFAQ(idx)}
+                  className="w-full text-left px-8 py-6 flex justify-between items-center focus:outline-none"
+                >
+                  <h4 className={`text-lg font-bold pr-8 ${openIndex === idx ? "text-primary-light" : "text-white"}`}>
+                    {item.question}
+                  </h4>
+                  <div
+                    className={`shrink-0 w-8 h-8 rounded-full flex items-center justify-center transition-colors ${
+                      openIndex === idx ? "bg-primary text-white" : "bg-white/10 text-slate-500"
+                    }`}
+                  >
+                    {openIndex === idx ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
+                  </div>
+                </button>
+
+                <div
+                  className={`px-8 overflow-hidden transition-all duration-300 ease-in-out ${
+                    openIndex === idx ? "max-h-96 pb-6 opacity-100" : "max-h-0 opacity-0"
+                  }`}
+                >
+                  <p className="text-slate-400 leading-relaxed pt-4 border-t border-white/10">{item.answer}</p>
                 </div>
-              ))}
-            </div>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-16 text-center bg-white/5 p-10 rounded-3xl border border-white/10">
+            <MessageCircleQuestion className="mx-auto text-primary-light mb-4" size={48} />
+            <h4 className="text-2xl font-black text-white mb-4">想更快釐清需求？</h4>
+            <p className="text-slate-400 mb-8">我們可以協助您用最短時間確認可行方案、時程與預期效益。</p>
+            <Link
+              to="/contact"
+              className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)]"
+            >
+              聯絡我們
+            </Link>
           </div>
         </div>
       </section>

@@ -3,6 +3,12 @@ import { ArrowUpRight, Quote, Building2, Ship, ShoppingBag, Sun } from "lucide-r
 
 export default function CaseStudies() {
   const icons = [Building2, Ship, ShoppingBag, Sun];
+  const caseImages = [
+    "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80", // law / meeting
+    "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=1600&q=80", // shipping / container port
+    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80", // ecommerce / product
+    "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80", // solar panels
+  ];
 
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
@@ -32,9 +38,13 @@ export default function CaseStudies() {
               return (
                 <div key={idx} className="bg-slate-900 rounded-3xl shadow-sm border border-white/10 overflow-hidden group hover:shadow-xl transition-shadow duration-300">
                   <div className="grid grid-cols-1 lg:grid-cols-12">
-                    <div className="lg:col-span-5 relative h-64 lg:h-auto bg-white/5 flex items-center justify-center">
-                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 to-transparent"></div>
-                      <Icon size={80} className="text-primary-light/30 transform group-hover:scale-110 transition-transform duration-500" />
+                    <div className="lg:col-span-5 relative h-64 lg:h-auto bg-slate-900 flex items-center justify-center overflow-hidden">
+                      <div className="absolute inset-0 bg-gradient-to-tr from-primary/20 to-transparent z-10 mix-blend-overlay pointer-events-none"></div>
+                      <img 
+                        src={caseImages[idx % caseImages.length]}
+                        alt={caseStudy.title}
+                        className="absolute inset-0 w-full h-full object-cover opacity-90 transform group-hover:scale-105 transition-transform duration-700"
+                      />
                     </div>
                     <div className="lg:col-span-7 p-10 lg:p-16">
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-primary-light text-sm font-bold mb-6">

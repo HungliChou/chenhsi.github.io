@@ -111,18 +111,9 @@ export default function Layout() {
                   {siteContent.companyNameZh}
                 </span>
               </div>
-              <p className="text-slate-500 mb-6 max-w-md leading-relaxed">
+              <p className="text-slate-500 max-w-md leading-relaxed">
                 {siteContent.seo_meta.description}
               </p>
-              <div className="flex space-x-4">
-                {/* Social placeholders */}
-                <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                  in
-                </div>
-                <div className="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors cursor-pointer">
-                  f
-                </div>
-              </div>
             </div>
 
             <div>

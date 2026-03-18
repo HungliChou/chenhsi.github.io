@@ -52,8 +52,8 @@ export default function Privacy() {
               <p className="text-slate-400 mb-4">
                 如果您對我們的隱私權政策有任何疑問，請透過以下方式與我們聯繫：
               </p>
-              <a href="mailto:privacy@chenhsitech.com" className="text-primary-light font-bold hover:underline">
-                privacy@chenhsitech.com
+              <a href="mailto:support@chenhsiai.com" className="text-primary-light font-bold hover:underline">
+                support@chenhsiai.com
               </a>
             </div>
           </div>

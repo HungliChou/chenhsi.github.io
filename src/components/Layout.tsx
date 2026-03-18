@@ -35,7 +35,7 @@ export default function Layout() {
                 </span>
               </Link>
             </div>
-            
+
             {/* Desktop Nav */}
             <nav className="hidden md:flex space-x-8 items-center">
               {navLinks.map((link) => (
@@ -124,7 +124,7 @@ export default function Layout() {
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-6">快速連結</h3>
               <ul className="space-y-4">
@@ -138,16 +138,16 @@ export default function Layout() {
                 ))}
               </ul>
             </div>
-            
+
             <div>
               <h3 className="text-lg font-semibold mb-6">聯絡資訊</h3>
               <ul className="space-y-4 text-slate-500">
                 <li>台灣臺北市南港區玉成街66之7號地下一層</li>
-                <li>support@chenhsitech.com</li>
+                <li>support@chenhsiai.com</li>
               </ul>
             </div>
           </div>
-          
+
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
             <p>&copy; {new Date().getFullYear()} {siteContent.companyName}. All rights reserved.</p>
             <div className="flex space-x-6">

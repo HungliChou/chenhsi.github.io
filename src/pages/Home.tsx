@@ -174,6 +174,33 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Industries Section */}
+      <section className="py-24 bg-slate-950 border-b border-white/10">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+          <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
+            適用產業
+          </h2>
+          <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
+            依產業特性規劃適合的 AI 解決方案
+          </h3>
+          <p className="text-lg text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
+            不同產業有不同的流程、資訊型態與管理痛點，因此 AI 的導入方式也應有所不同。我們可依產業特性與部門需求，規劃最適合的 AI 解決方案組合。
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            {industries.map((industry, idx) => (
+              <span key={idx} className="bg-white/5 text-slate-300 border border-white/10 px-6 py-3 rounded-full font-medium hover:bg-primary/20 hover:text-primary-light hover:border-primary/30 transition-colors cursor-default">
+                {industry}
+              </span>
+            ))}
+          </div>
+          
+          <Link to="/industries" className="inline-flex items-center gap-2 text-primary-light font-bold hover:text-white transition-colors">
+            查看各產業詳細解決方案 <ArrowRight size={20} />
+          </Link>
+        </div>
+      </section>
+
       {/* Implementation Approach */}
       <section className="py-24 bg-slate-900 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -226,33 +253,6 @@ export default function Home() {
               </ul>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Industries Section */}
-      <section className="py-24 bg-slate-950 border-b border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
-            適用產業
-          </h2>
-          <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
-            依產業特性規劃適合的 AI 解決方案
-          </h3>
-          <p className="text-lg text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            不同產業有不同的流程、資訊型態與管理痛點，因此 AI 的導入方式也應有所不同。我們可依產業特性與部門需求，規劃最適合的 AI 解決方案組合。
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
-            {industries.map((industry, idx) => (
-              <span key={idx} className="bg-white/5 text-slate-300 border border-white/10 px-6 py-3 rounded-full font-medium hover:bg-primary/20 hover:text-primary-light hover:border-primary/30 transition-colors cursor-default">
-                {industry}
-              </span>
-            ))}
-          </div>
-          
-          <Link to="/industries" className="inline-flex items-center gap-2 text-primary-light font-bold hover:text-white transition-colors">
-            查看各產業詳細解決方案 <ArrowRight size={20} />
-          </Link>
         </div>
       </section>
 

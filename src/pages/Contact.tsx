@@ -39,7 +39,7 @@ export default function Contact() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
-            
+
             {/* Contact Info */}
             <div>
               <h3 className="text-3xl font-black text-white mb-8">
@@ -48,7 +48,7 @@ export default function Contact() {
               <p className="text-lg text-slate-400 leading-relaxed mb-12">
                 無論您是需要服務諮詢、合作洽談，或是對我們的解決方案有任何疑問，我們都樂意為您解答。
               </p>
-              
+
               <div className="space-y-8">
                 <div className="flex items-start gap-4">
                   <div className="w-12 h-12 bg-white/5 rounded-full flex items-center justify-center text-primary-light shrink-0">
@@ -65,7 +65,7 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2">電子郵件</h4>
-                    <p className="text-slate-400">support@chenhsitech.com</p>
+                    <p className="text-slate-400">support@chenhsiai.com</p>
                   </div>
                 </div>
               </div>
@@ -74,7 +74,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="bg-slate-900 p-10 rounded-3xl shadow-xl border border-white/10 relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-primary to-primary-light"></div>
-              
+
               {isSuccess ? (
                 <div className="h-full flex flex-col items-center justify-center text-center py-12">
                   <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center text-cyan-400 mb-6">
@@ -103,7 +103,7 @@ export default function Contact() {
                       <input type="email" id="email" required className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="your@email.com" />
                     </div>
                   </div>
-                  
+
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
                       <label htmlFor="company" className="block text-sm font-bold text-slate-300 mb-2">公司名稱</label>
@@ -164,7 +164,7 @@ export default function Contact() {
               為您解答疑惑
             </h3>
           </div>
-          
+
           <div className="space-y-6">
             {siteContent.faq.map((item, idx) => (
               <div key={idx} className="bg-slate-950 p-8 rounded-2xl border border-white/10">

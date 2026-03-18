@@ -4,10 +4,10 @@ import { ArrowUpRight, Quote, Building2, Ship, ShoppingBag, Sun } from "lucide-r
 export default function CaseStudies() {
   const icons = [Building2, Ship, ShoppingBag, Sun];
   const caseImages = [
-    "https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1600&q=80", // law / meeting
-    "https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?auto=format&fit=crop&w=1600&q=80", // shipping / container port
-    "https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=1600&q=80", // ecommerce / product
-    "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80", // solar panels
+    "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80", // 法律：大量文件、效率感
+    "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?auto=format&fit=crop&w=1600&q=80", // 航運：物流、貨櫃運輸
+    "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1600&q=80", // 電商客服：客服耳麥、支援感
+    "https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=1600&q=80", // 商機篩選：太陽能
   ];
 
   return (

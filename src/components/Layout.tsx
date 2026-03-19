@@ -38,8 +38,14 @@ export default function Layout() {
                   className="h-10 w-auto bg-transparent"
                   style={{ background: "transparent" }}
                 />
-                <span className="font-bold text-2xl text-white tracking-tight">
-                  {siteContent.companyNameZh}
+                <span
+                  className={
+                    lang === "en"
+                      ? "font-brand-en text-xl sm:text-2xl text-white leading-none"
+                      : "font-bold text-2xl text-white tracking-tight"
+                  }
+                >
+                  {lang === "en" ? siteContent.companyName : siteContent.companyNameZh}
                 </span>
               </Link>
             </div>
@@ -138,8 +144,14 @@ export default function Layout() {
                   className="h-8 w-auto bg-transparent"
                   style={{ background: "transparent" }}
                 />
-                <span className="font-bold text-xl tracking-tight">
-                  {siteContent.companyNameZh}
+                <span
+                  className={
+                    lang === "en"
+                      ? "font-brand-en text-lg sm:text-xl text-white leading-none"
+                      : "font-bold text-xl tracking-tight"
+                  }
+                >
+                  {lang === "en" ? siteContent.companyName : siteContent.companyNameZh}
                 </span>
               </div>
               <p className="text-slate-500 max-w-md leading-relaxed">

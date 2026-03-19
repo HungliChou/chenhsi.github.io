@@ -13,6 +13,48 @@ export default function About() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const renderAnswer = (answer: string) => {
+    const normalized = answer.replace(/\r\n/g, "\n").trim();
+    const firstItemIdx = normalized.search(/\b1\.\s/);
+    if (firstItemIdx !== -1) {
+      const intro = normalized.slice(0, firstItemIdx).trim();
+      const listText = normalized.slice(firstItemIdx).trim();
+      const rawItems = listText
+        .split(/\s(?=\d+\.\s)/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((s) => s.replace(/^\d+\.\s*/, ""));
+      if (rawItems.length >= 2) {
+        return (
+          <div className="text-slate-400 leading-relaxed pt-4 border-t border-white/10 space-y-3">
+            {intro && <p>{intro}</p>}
+            <ol className="list-decimal pl-5 space-y-2">
+              {rawItems.map((it, i) => (
+                <li key={i}>{it}</li>
+              ))}
+            </ol>
+          </div>
+        );
+      }
+    }
+    const newlineParts = normalized.split("\n").map((s) => s.trim()).filter(Boolean);
+    if (newlineParts.length > 1) {
+      const [intro, ...rest] = newlineParts;
+      const items = rest.map((line) => line.replace(/^\d+\.\s*/, ""));
+      return (
+        <div className="text-slate-400 leading-relaxed pt-4 border-t border-white/10 space-y-3">
+          <p>{intro}</p>
+          <ol className="list-decimal pl-5 space-y-2">
+            {items.map((it, i) => (
+              <li key={i}>{it}</li>
+            ))}
+          </ol>
+        </div>
+      );
+    }
+    return <p className="text-slate-400 leading-relaxed pt-4 border-t border-white/10 whitespace-pre-line">{normalized}</p>;
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
       {/* Hero */}
@@ -144,7 +186,7 @@ export default function About() {
                     openIndex === idx ? "max-h-96 pb-6 opacity-100" : "max-h-0 opacity-0"
                   }`}
                 >
-                  <p className="text-slate-400 leading-relaxed pt-4 border-t border-white/10">{item.answer}</p>
+                  {renderAnswer(item.answer)}
                 </div>
               </div>
             ))}

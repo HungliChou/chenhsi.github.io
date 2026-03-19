@@ -218,7 +218,7 @@ export const siteContentZh: SiteContent = {
 
 export const siteContentEn: SiteContent = {
   companyName: "ChenHsi Technology",
-  companyNameZh: "ChenHsi",
+  companyNameZh: "ChenHsi Technology",
   hero_title: "Enterprise AI Integration, Made Practical",
   hero_subtitle: "From LLMOps to intelligent Q&A—deploy AI that improves day-to-day operations and decision making.",
   hero_image_alt: "ChenHsi Technology AI solutions illustration",

@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&display=swap');
 @import "tailwindcss";
 
 @theme {
@@ -7,6 +8,13 @@
   --color-accent: #00F0FF;
   --color-secondary: #7F7F7F;
   --font-sans: "Noto Sans TC", ui-sans-serif, system-ui, sans-serif;
+}
+
+/* English wordmark — geometric display, reads like a tech logo */
+.font-brand-en {
+  font-family: "Syne", ui-sans-serif, system-ui, sans-serif;
+  font-weight: 800;
+  letter-spacing: -0.02em;
 }
 
 body {

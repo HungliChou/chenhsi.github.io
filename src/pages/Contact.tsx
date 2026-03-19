@@ -12,6 +12,48 @@ export default function Contact() {
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
+  const renderAnswer = (answer: string) => {
+    const normalized = answer.replace(/\r\n/g, "\n").trim();
+    const firstItemIdx = normalized.search(/\b1\.\s/);
+    if (firstItemIdx !== -1) {
+      const intro = normalized.slice(0, firstItemIdx).trim();
+      const listText = normalized.slice(firstItemIdx).trim();
+      const rawItems = listText
+        .split(/\s(?=\d+\.\s)/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((s) => s.replace(/^\d+\.\s*/, ""));
+      if (rawItems.length >= 2) {
+        return (
+          <div className="text-slate-400 leading-relaxed">
+            {intro && <p>{intro}</p>}
+            <ol className="list-decimal pl-5 space-y-2 mt-3">
+              {rawItems.map((it, i) => (
+                <li key={i}>{it}</li>
+              ))}
+            </ol>
+          </div>
+        );
+      }
+    }
+    const newlineParts = normalized.split("\n").map((s) => s.trim()).filter(Boolean);
+    if (newlineParts.length > 1) {
+      const [intro, ...rest] = newlineParts;
+      const items = rest.map((line) => line.replace(/^\d+\.\s*/, ""));
+      return (
+        <div className="text-slate-400 leading-relaxed space-y-3">
+          <p>{intro}</p>
+          <ol className="list-decimal pl-5 space-y-2">
+            {items.map((it, i) => (
+              <li key={i}>{it}</li>
+            ))}
+          </ol>
+        </div>
+      );
+    }
+    return <p className="text-slate-400 leading-relaxed whitespace-pre-line">{normalized}</p>;
+  };
+
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError(null);
@@ -234,10 +276,12 @@ export default function Contact() {
                   <span className="text-primary-light text-2xl leading-none">Q.</span>
                   {item.question}
                 </h4>
-                <p className="text-slate-400 leading-relaxed pl-10">
-                  <span className="text-slate-500 font-bold mr-2">A.</span>
-                  {item.answer}
-                </p>
+                <div className="pl-10">
+                  <div className="flex items-start gap-2">
+                    <span className="text-slate-500 font-bold">A.</span>
+                    <div className="min-w-0 flex-1">{renderAnswer(item.answer)}</div>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

@@ -41,7 +41,7 @@ export default function Layout() {
                 <span
                   className={
                     lang === "en"
-                      ? "font-brand-en text-xl sm:text-2xl text-white leading-none"
+                      ? "font-brand-en text-lg sm:text-xl md:text-2xl text-white leading-tight"
                       : "font-bold text-2xl text-white tracking-tight"
                   }
                 >
@@ -147,7 +147,7 @@ export default function Layout() {
                 <span
                   className={
                     lang === "en"
-                      ? "font-brand-en text-lg sm:text-xl text-white leading-none"
+                      ? "font-brand-en text-base sm:text-lg text-white leading-tight"
                       : "font-bold text-xl tracking-tight"
                   }
                 >

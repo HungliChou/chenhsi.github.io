@@ -13,6 +13,24 @@ export default function FAQ() {
     setOpenIndex(openIndex === index ? null : index);
   };
 
+  const renderAnswer = (answer: string) => {
+    const parts = answer.split("\n").map((s) => s.trim()).filter(Boolean);
+    if (parts.length <= 1) return <p className="text-slate-400 leading-relaxed pt-4 border-t border-white/10">{answer}</p>;
+
+    const [intro, ...rest] = parts;
+    const items = rest.map((line) => line.replace(/^\d+\.\s*/, ""));
+    return (
+      <div className="pt-4 border-t border-white/10 text-slate-400 leading-relaxed space-y-3">
+        <p>{intro}</p>
+        <ol className="list-decimal pl-5 space-y-2">
+          {items.map((it, i) => (
+            <li key={i}>{it}</li>
+          ))}
+        </ol>
+      </div>
+    );
+  };
+
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
       {/* Hero */}
@@ -58,9 +76,7 @@ export default function FAQ() {
                 <div 
                   className={`px-8 overflow-hidden transition-all duration-300 ease-in-out ${openIndex === idx ? 'max-h-96 pb-6 opacity-100' : 'max-h-0 opacity-0'}`}
                 >
-                  <p className="text-slate-400 leading-relaxed pt-4 border-t border-white/10">
-                    {item.answer}
-                  </p>
+                  {renderAnswer(item.answer)}
                 </div>
               </div>
             ))}

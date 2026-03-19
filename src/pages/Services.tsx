@@ -579,10 +579,13 @@ export default function Services() {
       <section className="py-24 bg-slate-900 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-black text-white mb-8">
-            從評估到落地，我們提供完整支援
+            {lang === "en" ? "From evaluation to go-live, we support end to end" : "從評估到落地，我們提供完整支援"}
           </h2>
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
-            {['需求評估', '方案設計', '開發測試', '部署訓練'].map((step, idx) => (
+            {(lang === "en"
+              ? ["Requirements assessment", "Solution design", "Build & testing", "Deployment & training"]
+              : ["需求評估", "方案設計", "開發測試", "部署訓練"]
+            ).map((step, idx) => (
               <div key={idx} className="relative">
                 <div className="w-16 h-16 mx-auto bg-slate-900 rounded-full flex items-center justify-center text-primary-light font-black text-2xl mb-4 relative z-10 border-4 border-white/20">
                   {idx + 1}
@@ -598,7 +601,7 @@ export default function Services() {
             to="/contact"
             className="inline-flex justify-center items-center gap-2 bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-light transition-all shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)] hover:-translate-y-1"
           >
-            開始您的專案
+            {lang === "en" ? "Start your project" : "開始您的專案"}
             <ArrowRight size={20} />
           </Link>
         </div>

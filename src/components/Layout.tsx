@@ -1,24 +1,27 @@
 import { Link, Outlet } from "react-router-dom";
-import { siteContent } from "../data/content";
 import { Menu, X, ChevronRight } from "lucide-react";
 import { useState } from "react";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 export default function Layout() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { lang, setLang } = useI18n();
+  const siteContent = useSiteContent();
 
   const navLinks = [
-    { name: "首頁", path: "/" },
-    { name: "解決方案", path: "/services" },
-    { name: "適用產業", path: "/industries" },
-    { name: "客戶案例", path: "/case-studies" },
-    { name: "關於我們", path: "/about" },
+    { name: lang === "en" ? "Home" : "首頁", path: "/" },
+    { name: lang === "en" ? "Solutions" : "解決方案", path: "/services" },
+    { name: lang === "en" ? "Industries" : "適用產業", path: "/industries" },
+    { name: lang === "en" ? "Case Studies" : "客戶案例", path: "/case-studies" },
+    { name: lang === "en" ? "About" : "關於我們", path: "/about" },
     // { name: "最新洞察", path: "/blog" },
   ];
 
   const footerLinks = [
-    { name: "常見問答", path: "/faq" },
+    { name: lang === "en" ? "FAQ" : "常見問答", path: "/faq" },
     // { name: "招募資訊", path: "/careers" },
-    { name: "聯絡我們", path: "/contact" },
+    { name: lang === "en" ? "Contact" : "聯絡我們", path: "/contact" },
   ];
 
   return (
@@ -47,11 +50,19 @@ export default function Layout() {
                   {link.name}
                 </Link>
               ))}
+              <button
+                type="button"
+                onClick={() => setLang(lang === "zh" ? "en" : "zh")}
+                className="text-slate-300 hover:text-white font-medium transition-colors px-3 py-2 rounded-full border border-white/10 hover:border-white/30"
+                aria-label="Toggle language"
+              >
+                {lang === "zh" ? "EN" : "中文"}
+              </button>
               <Link
                 to="/contact"
                 className="bg-primary text-white px-6 py-2.5 rounded-full font-medium hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)]"
               >
-                立即諮詢
+                {lang === "en" ? "Get in touch" : "立即諮詢"}
               </Link>
             </nav>
 
@@ -82,12 +93,22 @@ export default function Layout() {
                 </Link>
               ))}
               <div className="pt-4 px-3">
+                <button
+                  type="button"
+                  onClick={() => {
+                    setLang(lang === "zh" ? "en" : "zh");
+                    setIsMenuOpen(false);
+                  }}
+                  className="block w-full text-center border border-white/10 text-slate-200 px-6 py-3 rounded-full font-medium hover:bg-white/5 transition-colors mb-3"
+                >
+                  {lang === "zh" ? "切換到 English" : "Switch to 中文"}
+                </button>
                 <Link
                   to="/contact"
                   onClick={() => setIsMenuOpen(false)}
                   className="block w-full text-center bg-primary text-white px-6 py-3 rounded-full font-medium hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)]"
                 >
-                  立即諮詢
+                  {lang === "en" ? "Get in touch" : "立即諮詢"}
                 </Link>
               </div>
             </div>
@@ -117,7 +138,7 @@ export default function Layout() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-6">快速連結</h3>
+              <h3 className="text-lg font-semibold mb-6">{lang === "en" ? "Quick links" : "快速連結"}</h3>
               <ul className="space-y-4">
                 {[...navLinks, ...footerLinks].map((link) => (
                   <li key={link.name}>
@@ -131,9 +152,9 @@ export default function Layout() {
             </div>
 
             <div>
-              <h3 className="text-lg font-semibold mb-6">聯絡資訊</h3>
+              <h3 className="text-lg font-semibold mb-6">{lang === "en" ? "Contact" : "聯絡資訊"}</h3>
               <ul className="space-y-4 text-slate-500">
-                <li>台灣臺北市南港區玉成街66之7號地下一層</li>
+                <li>{lang === "en" ? "B1, No. 66-7, Yucheng St., Nangang Dist., Taipei, Taiwan" : "台灣臺北市南港區玉成街66之7號地下一層"}</li>
                 <li>support@chenhsiai.com</li>
               </ul>
             </div>
@@ -142,8 +163,8 @@ export default function Layout() {
           <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
             <p>&copy; {new Date().getFullYear()} {siteContent.companyName}. All rights reserved.</p>
             <div className="flex space-x-6">
-              <Link to="/privacy" className="hover:text-white transition-colors">隱私權聲明</Link>
-              <Link to="/privacy" className="hover:text-white transition-colors">服務條款</Link>
+              <Link to="/privacy" className="hover:text-white transition-colors">{lang === "en" ? "Privacy" : "隱私權聲明"}</Link>
+              <Link to="/privacy" className="hover:text-white transition-colors">{lang === "en" ? "Terms" : "服務條款"}</Link>
             </div>
           </div>
         </div>

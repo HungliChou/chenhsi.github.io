@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { ArrowRight, Briefcase, Building, Stethoscope, ShoppingCart, Home, Scale, Truck, GraduationCap, MonitorSmartphone, Users, Landmark, Utensils } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useI18n } from "../i18n/I18nProvider";
 
 const industries = [
   {
@@ -228,7 +229,64 @@ const industries = [
 ];
 
 export default function Industries() {
+  const { lang } = useI18n();
   const [activeTab, setActiveTab] = useState(industries[0].id);
+
+  if (lang === "en") {
+    return (
+      <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
+        <section className="bg-slate-950 text-white py-24 relative overflow-hidden border-b border-white/10">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 leading-[1.1]">
+              Industry-fit AI solutions
+            </h1>
+            <p className="text-xl md:text-2xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto font-light">
+              Workflows and information types vary by industry. We tailor adoption paths by department needs and real-world constraints.
+            </p>
+          </div>
+        </section>
+
+        <section className="py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              {[
+                "Manufacturing",
+                "Finance & Insurance",
+                "Healthcare",
+                "Retail & E-commerce",
+                "Real Estate & Property",
+                "Legal & Consulting",
+                "Logistics & Transportation",
+                "Education & Training",
+                "SaaS & Software",
+                "HR & Recruitment",
+                "Government & NGO",
+                "Hospitality & Food Service",
+              ].map((name) => (
+                <div key={name} className="bg-slate-900 p-8 rounded-3xl border border-white/10">
+                  <h3 className="text-xl font-black text-white mb-3">{name}</h3>
+                  <p className="text-slate-400 leading-relaxed">
+                    We prioritize the most common pain points: knowledge access, document processing, customer support, workflows, and analytics.
+                  </p>
+                </div>
+              ))}
+            </div>
+
+            <div className="mt-14 text-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)]"
+              >
+                Discuss your industry <ArrowRight size={20} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">

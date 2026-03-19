@@ -1,7 +1,10 @@
-import { siteContent } from "../data/content";
 import { Shield, Lock, FileText, CheckCircle2 } from "lucide-react";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 export default function Privacy() {
+  const { lang } = useI18n();
+  const siteContent = useSiteContent();
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
       {/* Hero */}
@@ -10,13 +13,15 @@ export default function Privacy() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">
-            法務與隱私
+            {lang === "en" ? "Legal & Privacy" : "法務與隱私"}
           </h1>
           <h2 className="text-5xl font-black mb-6 leading-tight">
-            隱私權聲明與服務條款
+            {lang === "en" ? "Privacy & Terms" : "隱私權聲明與服務條款"}
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed font-light max-w-3xl mx-auto">
-            宸希科技重視您的隱私與資料安全，請查閱我們的隱私權聲明與服務條款以了解詳細信息。
+            {lang === "en"
+              ? "We take your privacy and data security seriously. Please review our privacy and terms information below."
+              : "宸希科技重視您的隱私與資料安全，請查閱我們的隱私權聲明與服務條款以了解詳細信息。"}
           </p>
         </div>
       </section>
@@ -27,7 +32,10 @@ export default function Privacy() {
           <div className="bg-slate-900 p-10 md:p-16 rounded-3xl shadow-sm border border-white/10">
             <div className="flex items-center gap-2 text-sm text-slate-500 mb-12 pb-6 border-b border-white/10">
               <FileText size={16} />
-              <span>最後更新日期：{siteContent.privacy.lastUpdated}</span>
+              <span>
+                {lang === "en" ? "Last updated: " : "最後更新日期："}
+                {siteContent.privacy.lastUpdated}
+              </span>
             </div>
 
             <div className="space-y-12">
@@ -48,9 +56,11 @@ export default function Privacy() {
             </div>
 
             <div className="mt-16 pt-8 border-t border-white/10 bg-slate-950 p-8 rounded-2xl">
-              <h4 className="font-bold text-white mb-2">聯絡隱私權團隊</h4>
+              <h4 className="font-bold text-white mb-2">{lang === "en" ? "Contact the privacy team" : "聯絡隱私權團隊"}</h4>
               <p className="text-slate-400 mb-4">
-                如果您對我們的隱私權政策有任何疑問，請透過以下方式與我們聯繫：
+                {lang === "en"
+                  ? "If you have any questions about our privacy policy, please contact us at:"
+                  : "如果您對我們的隱私權政策有任何疑問，請透過以下方式與我們聯繫："}
               </p>
               <a href="mailto:support@chenhsiai.com" className="text-primary-light font-bold hover:underline">
                 support@chenhsiai.com

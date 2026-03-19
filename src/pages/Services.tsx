@@ -1,5 +1,6 @@
 import { ArrowRight, CheckCircle2, Database, FileText, MessageSquare, Zap, Workflow, ShieldCheck, Camera, TrendingUp, Users, LineChart } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/I18nProvider";
 
 const solutions = [
   {
@@ -115,6 +116,69 @@ const solutions = [
 ];
 
 export default function Services() {
+  const { lang } = useI18n();
+
+  if (lang === "en") {
+    return (
+      <div className="min-h-screen bg-slate-950 pb-24 font-sans text-slate-200">
+        <section className="bg-slate-950 text-white py-24 relative overflow-hidden border-b border-white/10">
+          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+            <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">Solutions</h1>
+            <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
+              Practical enterprise AI modules
+              <br className="hidden md:block" />
+              for knowledge, docs, support, workflows, and finance
+            </h2>
+            <p className="text-xl text-blue-100 leading-relaxed font-light max-w-4xl mx-auto">
+              Pick the right starting point by workflow and pain points. Modules can be adopted independently or combined into an end-to-end architecture.
+            </p>
+          </div>
+        </section>
+
+        <section className="py-24">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+              {[
+                { icon: Database, name: "KnowledgeFlow", desc: "Searchable, governed enterprise knowledge hub." },
+                { icon: FileText, name: "DocuMind", desc: "OCR, extraction, classification, and document QA." },
+                { icon: MessageSquare, name: "ServicePilot", desc: "AI-assisted customer support and self-service." },
+                { icon: Zap, name: "WorkSprint", desc: "Faster summaries, drafts, reporting, and cross-system lookup." },
+                { icon: Workflow, name: "FlowOps", desc: "Workflow agents for intake, routing, tracking, approvals." },
+                { icon: ShieldCheck, name: "RiskLens", desc: "Compliance knowledge, clause comparison, risk hints." },
+                { icon: Camera, name: "FieldVision", desc: "Turn photos/inspections into structured, usable evidence." },
+                { icon: TrendingUp, name: "CommerceBoost", desc: "Sales & marketing acceleration for proposals and growth." },
+                { icon: Users, name: "TalentDesk", desc: "HR/admin efficiency for internal services and training." },
+                { icon: LineChart, name: "FinSight", desc: "Finance insights: validation, cross-checks, scenario analysis." },
+              ].map((s) => {
+                const Icon = s.icon;
+                return (
+                  <div key={s.name} className="bg-slate-900 p-8 rounded-3xl border border-white/10 hover:border-primary/40 transition-colors">
+                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-primary-light mb-6">
+                      <Icon size={24} />
+                    </div>
+                    <h3 className="text-xl font-black text-white mb-3">{s.name}</h3>
+                    <p className="text-slate-400 leading-relaxed">{s.desc}</p>
+                  </div>
+                );
+              })}
+            </div>
+
+            <div className="mt-14 text-center">
+              <Link
+                to="/contact"
+                className="inline-flex items-center gap-2 bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)]"
+              >
+                Talk to us <ArrowRight size={20} />
+              </Link>
+            </div>
+          </div>
+        </section>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 pb-24 font-sans text-slate-200">
       {/* Hero */}

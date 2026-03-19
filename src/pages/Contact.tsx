@@ -1,16 +1,13 @@
-import { siteContent } from "../data/content";
 import { Mail, MapPin, Send, ChevronDown } from "lucide-react";
 import React, { useState } from "react";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 const FORMSUBMIT_URL = "https://formsubmit.co/support@chenhsiai.com";
 
-const typeLabels: Record<string, string> = {
-  consulting: "服務諮詢",
-  partnership: "合作洽談",
-  other: "其他",
-};
-
 export default function Contact() {
+  const { lang } = useI18n();
+  const siteContent = useSiteContent();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);
@@ -25,6 +22,10 @@ export default function Contact() {
     const phone = (form.querySelector("#phone") as HTMLInputElement).value.trim();
     const type = (form.querySelector("#type") as HTMLSelectElement).value;
     const message = (form.querySelector("#message") as HTMLTextAreaElement).value.trim();
+    const typeLabels: Record<string, string> =
+      lang === "en"
+        ? { consulting: "Consulting", partnership: "Partnership", other: "Other" }
+        : { consulting: "服務諮詢", partnership: "合作洽談", other: "其他" };
 
     setIsSubmitting(true);
     try {
@@ -32,22 +33,22 @@ export default function Contact() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          _subject: `網站聯絡表單：${name} - ${typeLabels[type] ?? type}`,
+          _subject: `${lang === "en" ? "Website contact form" : "網站聯絡表單"}：${name} - ${typeLabels[type] ?? type}`,
           _replyto: email,
           _template: "table",
           name,
           email,
-          company: company || "(未填)",
-          phone: phone || "(未填)",
-          需求類型: typeLabels[type] ?? type,
-          message: message || "(未填)",
+          company: company || (lang === "en" ? "(not provided)" : "(未填)"),
+          phone: phone || (lang === "en" ? "(not provided)" : "(未填)"),
+          [lang === "en" ? "Inquiry type" : "需求類型"]: typeLabels[type] ?? type,
+          message: message || (lang === "en" ? "(not provided)" : "(未填)"),
         }),
       });
-      if (!res.ok) throw new Error("送出失敗，請稍後再試");
+      if (!res.ok) throw new Error(lang === "en" ? "Failed to submit" : "送出失敗，請稍後再試");
       setIsSuccess(true);
       form.reset();
     } catch {
-      setError("無法送出表單，請稍後再試或直接寄信至 support@chenhsiai.com");
+      setError(lang === "en" ? "Unable to submit. Please try again later or email support@chenhsiai.com" : "無法送出表單，請稍後再試或直接寄信至 support@chenhsiai.com");
     } finally {
       setIsSubmitting(false);
     }
@@ -61,13 +62,25 @@ export default function Contact() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">
-            聯絡我們
+            {lang === "en" ? "Contact" : "聯絡我們"}
           </h1>
           <h2 className="text-5xl font-black mb-6 leading-tight">
-            準備好開啟您的<br />AI 轉型之旅了嗎？
+            {lang === "en" ? (
+              <>
+                Ready to start
+                <br />
+                your AI journey?
+              </>
+            ) : (
+              <>
+                準備好開啟您的<br />AI 轉型之旅了嗎？
+              </>
+            )}
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed font-light max-w-3xl mx-auto">
-            聯繫我們的專家團隊，為您量身打造最適合的企業級 AI 解決方案。
+            {lang === "en"
+              ? "Talk to our team to plan the right enterprise AI solution for your workflow."
+              : "聯繫我們的專家團隊，為您量身打造最適合的企業級 AI 解決方案。"}
           </p>
         </div>
       </section>
@@ -80,10 +93,12 @@ export default function Contact() {
             {/* Contact Info */}
             <div>
               <h3 className="text-3xl font-black text-white mb-8">
-                與我們聯繫
+                {lang === "en" ? "Get in touch" : "與我們聯繫"}
               </h3>
               <p className="text-lg text-slate-400 leading-relaxed mb-12">
-                無論您是需要服務諮詢、合作洽談，或是對我們的解決方案有任何疑問，我們都樂意為您解答。
+                {lang === "en"
+                  ? "Whether you need consulting, partnership discussion, or have questions about our solutions, we’re happy to help."
+                  : "無論您是需要服務諮詢、合作洽談，或是對我們的解決方案有任何疑問，我們都樂意為您解答。"}
               </p>
 
               <div className="space-y-8">
@@ -92,7 +107,7 @@ export default function Contact() {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">公司地址</h4>
+                    <h4 className="text-xl font-bold text-white mb-2">{lang === "en" ? "Address" : "公司地址"}</h4>
                     <p className="text-slate-400">台灣臺北市南港區玉成街66之7號地下一層</p>
                   </div>
                 </div>
@@ -101,7 +116,7 @@ export default function Contact() {
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">電子郵件</h4>
+                    <h4 className="text-xl font-bold text-white mb-2">{lang === "en" ? "Email" : "電子郵件"}</h4>
                     <p className="text-slate-400">support@chenhsiai.com</p>
                   </div>
                 </div>
@@ -117,26 +132,28 @@ export default function Contact() {
                   <div className="w-20 h-20 bg-accent/20 rounded-full flex items-center justify-center text-cyan-400 mb-6">
                     <Send size={40} />
                   </div>
-                  <h3 className="text-2xl font-black text-white mb-4">訊息已送出！</h3>
+                  <h3 className="text-2xl font-black text-white mb-4">{lang === "en" ? "Message sent!" : "訊息已送出！"}</h3>
                   <p className="text-slate-400 mb-8">
-                    感謝您的聯繫，我們的專員將在兩個工作日內與您聯繫。
+                    {lang === "en"
+                      ? "Thanks for reaching out. We’ll reply within two business days."
+                      : "感謝您的聯繫，我們的專員將在兩個工作日內與您聯繫。"}
                   </p>
                   <button
                     onClick={() => { setIsSuccess(false); setError(null); }}
                     className="text-primary-light font-bold hover:underline"
                   >
-                    發送另一則訊息
+                    {lang === "en" ? "Send another message" : "發送另一則訊息"}
                   </button>
                 </div>
               ) : (
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-bold text-slate-300 mb-2">姓名 <span className="text-red-500">*</span></label>
-                      <input type="text" id="name" required className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="您的姓名" />
+                      <label htmlFor="name" className="block text-sm font-bold text-slate-300 mb-2">{lang === "en" ? "Name" : "姓名"} <span className="text-red-500">*</span></label>
+                      <input type="text" id="name" required className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder={lang === "en" ? "Your name" : "您的姓名"} />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-sm font-bold text-slate-300 mb-2">電子郵件 <span className="text-red-500">*</span></label>
+                      <label htmlFor="email" className="block text-sm font-bold text-slate-300 mb-2">{lang === "en" ? "Email" : "電子郵件"} <span className="text-red-500">*</span></label>
                       <input type="email" id="email" required className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="your@email.com" />
                     </div>
                   </div>

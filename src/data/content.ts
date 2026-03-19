@@ -1,38 +1,76 @@
-export const siteContent = {
+export type SiteContent = {
+  companyName: string;
+  companyNameZh: string;
+  hero_title: string;
+  hero_subtitle: string;
+  hero_image_alt: string;
+  about_title: string;
+  about_paragraph: string;
+  services: Array<{ title: string; description: string }>;
+  case_studies: Array<{ title: string; paragraph: string; client_quote: string }>;
+  testimonials: Array<{ name: string; position: string; company: string; quote: string; video_script: string }>;
+  faq: Array<{ question: string; answer: string }>;
+  blog_posts: Array<{ title: string; category: string; date: string; summary: string; tags: string[] }>;
+  careers: {
+    culture: string;
+    openings: Array<{ title: string; department: string; location: string; type: string; description: string }>;
+  };
+  privacy: {
+    lastUpdated: string;
+    content: Array<{ title: string; text: string }>;
+  };
+  contact_form_fields: string[];
+  auto_reply: { subject: string; body: string };
+  trust_elements: {
+    clients: string[];
+    partners: string[];
+    awards: string[];
+    media: string[];
+    metrics: { projects_completed: number; client_satisfaction: string };
+  };
+  seo_meta: { keywords: string; description: string };
+};
+
+export const siteContentZh: SiteContent = {
   companyName: "ChenHsi Technology",
   companyNameZh: "宸希科技",
   hero_title: "智能驅動企業力：AI 一站式整合服務",
   hero_subtitle: "我們提供企業級 AI 解決方案，從 LLMOps 架構到智能問答，助您全面提升營運效率。",
   hero_image_alt: "宸希科技 AI 解決方案插畫",
   about_title: "關於宸希科技",
-  about_paragraph: "宸希科技是一支專注企業 AI 整合的專業團隊，結合領先技術與豐富業界經驗，致力於協助客戶實現智慧轉型。核心團隊成員具備多年產業背景，已成功為金融、製造等行業客戶提供定制化方案。秉持「客戶為先、永續創新」的理念，我們不斷突破，與您攜手開創智能未來。",
+  about_paragraph:
+    "宸希科技是一支專注企業 AI 整合的專業團隊，結合領先技術與豐富業界經驗，致力於協助客戶實現智慧轉型。核心團隊成員具備多年產業背景，已成功為金融、製造等行業客戶提供定制化方案。秉持「客戶為先、永續創新」的理念，我們不斷突破，與您攜手開創智能未來。",
   services: [
     { title: "LLMOps 架構規劃", description: "為企業設計高效穩定的語言模型部署環境，優化算力與成本。" },
     { title: "系統整合顧問", description: "協助銜接現有系統與 AI 平臺，打通數據孤島，提升協作效能。" },
     { title: "雲端 AI 串接", description: "串接 AWS/Azure/GCP AI 服務，快速導入智能功能，包括自然語言處理與電腦視覺。" },
-    { title: "智能知識平臺(RAG)", description: "建立檢索增強生成平臺，自動化文檔問答與資料分析，加速知識運用。" }
+    { title: "智能知識平臺(RAG)", description: "建立檢索增強生成平臺，自動化文檔問答與資料分析，加速知識運用。" },
   ],
   case_studies: [
     {
       title: "法律事務所智能知識工作流",
-      paragraph: "為跨國法律事務所建置 AI 知識平臺，自動組織並檢索散佈各處的法律檔案。結果檢索效率提升 40%，律師滿意度大增。",
-      client_quote: "「導入 AI 後，我們能快速找到關鍵法條，工作效率大幅提升。」 — 某律師事務所 合伙人 Michael"
+      paragraph:
+        "為跨國法律事務所建置 AI 知識平臺，自動組織並檢索散佈各處的法律檔案。結果檢索效率提升 40%，律師滿意度大增。",
+      client_quote: "「導入 AI 後，我們能快速找到關鍵法條，工作效率大幅提升。」 — 某律師事務所 合伙人 Michael",
     },
     {
       title: "航運公司數據自動同步",
-      paragraph: "解決物流公司多庫存系統同步難題，使用 AI 自動比對與修正資料，跨系統數據準確率達 100%。月度報表生成時間從數小時減少至數分鐘。",
-      client_quote: "「AI 幫我們自動整理訂單數據，營運效率明顯提高。」 — 某航運 IT 經理 Kevin"
+      paragraph:
+        "解決物流公司多庫存系統同步難題，使用 AI 自動比對與修正資料，跨系統數據準確率達 100%。月度報表生成時間從數小時減少至數分鐘。",
+      client_quote: "「AI 幫我們自動整理訂單數據，營運效率明顯提高。」 — 某航運 IT 經理 Kevin",
     },
     {
       title: "生鮮電商智能客服",
-      paragraph: "導入 AI 客服機器人處理常見問題，自動回覆率達 85%，每日人工工時減少 30%，客戶滿意度上升 15%。",
-      client_quote: "「智能客服讓我們專注於更複雜的服務，顧客體驗也提升了。」 — 某生鮮電商 COO David"
+      paragraph:
+        "導入 AI 客服機器人處理常見問題，自動回覆率達 85%，每日人工工時減少 30%，客戶滿意度上升 15%。",
+      client_quote: "「智能客服讓我們專注於更複雜的服務，顧客體驗也提升了。」 — 某生鮮電商 COO David",
     },
     {
       title: "商機篩選與追蹤自動化流程",
-      paragraph: "太陽能科技公司進行業務開發時，需查找數十萬家工廠資料並查核公開資訊，以篩選出潛在客戶。過去仰賴人工進行條件審查，流程固定但極度繁雜，每日處理件數受限。導入流程自動化後，查核速度提升 100 倍，原本需要超過 3 個月才能完成的篩選工作，現在僅需 1 天即可完成，大幅加速業務開發進程。",
-      client_quote: "「自動化流程不僅節省了大量時間，更讓我們的業務團隊能專注於真正有價值的客戶洽談。」 — 某太陽能科技公司 總經理 Willy"
-    }
+      paragraph:
+        "太陽能科技公司進行業務開發時，需查找數十萬家工廠資料並查核公開資訊，以篩選出潛在客戶。過去仰賴人工進行條件審查，流程固定但極度繁雜，每日處理件數受限。導入流程自動化後，查核速度提升 100 倍，原本需要超過 3 個月才能完成的篩選工作，現在僅需 1 天即可完成，大幅加速業務開發進程。",
+      client_quote: "「自動化流程不僅節省了大量時間，更讓我們的業務團隊能專注於真正有價值的客戶洽談。」 — 某太陽能科技公司 總經理 Willy",
+    },
   ],
   testimonials: [
     {
@@ -40,23 +78,49 @@ export const siteContent = {
       position: "XX金融 集團資訊長",
       company: "XX金融",
       quote: "宸希科技的方案讓我們的風險管理流程智能化，決策速度提升了近五成。",
-      video_script: "在採用宸希科技服務前，我們的風控流程需要投入大量人力，現在 AI 系統能幫我們自動分析異常交易。我強烈推薦宸希團隊，他們專業且效率高。"
+      video_script:
+        "在採用宸希科技服務前，我們的風控流程需要投入大量人力，現在 AI 系統能幫我們自動分析異常交易。我強烈推薦宸希團隊，他們專業且效率高。",
     },
     {
       name: "張三",
       position: "XX公司 CEO",
       company: "XX公司",
-      quote: "宸希科技團隊的專業服務讓我們對 AI 導入更有信心。他們深入了解需求後，迅速提供符合產業特色的解決方案，使我們營運效率大幅提升。",
-      video_script: "導入前我們面臨嚴重的數據孤島問題。宸希科技部署的 AI 解決方案不僅打通了系統，更讓我們的決策效率翻倍。"
-    }
+      quote:
+        "宸希科技團隊的專業服務讓我們對 AI 導入更有信心。他們深入了解需求後，迅速提供符合產業特色的解決方案，使我們營運效率大幅提升。",
+      video_script:
+        "導入前我們面臨嚴重的數據孤島問題。宸希科技部署的 AI 解決方案不僅打通了系統，更讓我們的決策效率翻倍。",
+    },
   ],
   faq: [
-    { question: "宸希科技的 AI 服務合作流程是什麼？", answer: "我們先進行需求評估與數據審核，再擬定專屬方案。項目分為需求場景分析、開發、測試、部署等階段，全程透明溝通，並提供技術培訓與後續支援。" },
-    { question: "導入一套完整的 AI 解決方案需要多長時間？", answer: "時程視專案規模與複雜度而定。小型專案約 1~2 個月完成，大型系統整合可能需 4~6 個月。我們會在評估階段提供大致排程與里程碑。" },
-    { question: "服務價格如何計算？", answer: "依據專案範圍不同，我們可提供：\n1. 一次性專案報價：將按專案範圍與複雜度計算，適合短期專案或一次性需求。\n2. 預先購買人時數：人時可抵用所有專業服務(從顧問、開發、測試、部署、培訓到運維皆可用)，適合需預留服務檔期和計劃長期規劃延伸的企業。" },
-    { question: "導入 AI 後，是否提供員工培訓與使用指導？", answer: "是的，我們提供完整的教育訓練與操作手冊。包括現場培訓、操作說明文件以及線上教學影片，確保客戶能充分掌握系統使用方法與最佳實踐。" },
-    { question: "若企業已有部分 AI 能力，可否單獨擴充服務？", answer: "可以。我們可對接現有模型或平臺，優化其效果或加入新功能；也可提供 API 串接與模型調優建議，協助企業漸進式升級 AI 能力。" },
-    { question: "AI 解決方案需要什麼軟硬體環境？", answer: "依方案不同有所差異。若為雲端部署，我們可在各種 AI 雲平台運行，客戶端只需配置訪問權限。若為私有化部署，可能需要具備GPU運算資源，我們會提供最低運算需求建議並協助導入。" }
+    {
+      question: "宸希科技的 AI 服務合作流程是什麼？",
+      answer:
+        "我們先進行需求評估與數據審核，再擬定專屬方案。項目分為需求場景分析、開發、測試、部署等階段，全程透明溝通，並提供技術培訓與後續支援。",
+    },
+    {
+      question: "導入一套完整的 AI 解決方案需要多長時間？",
+      answer:
+        "時程視專案規模與複雜度而定。小型專案約 1~2 個月完成，大型系統整合可能需 4~6 個月。我們會在評估階段提供大致排程與里程碑。",
+    },
+    {
+      question: "服務價格如何計算？",
+      answer:
+        "依據專案範圍不同，我們可提供：\n1. 一次性專案報價：將按專案範圍與複雜度計算，適合短期專案或一次性需求。\n2. 預先購買人時數：人時可抵用所有專業服務(從顧問、開發、測試、部署、培訓到運維皆可用)，適合需預留服務檔期和計劃長期規劃延伸的企業。",
+    },
+    {
+      question: "導入 AI 後，是否提供員工培訓與使用指導？",
+      answer:
+        "是的，我們提供完整的教育訓練與操作手冊。包括現場培訓、操作說明文件以及線上教學影片，確保客戶能充分掌握系統使用方法與最佳實踐。",
+    },
+    {
+      question: "若企業已有部分 AI 能力，可否單獨擴充服務？",
+      answer: "可以。我們可對接現有模型或平臺，優化其效果或加入新功能；也可提供 API 串接與模型調優建議，協助企業漸進式升級 AI 能力。",
+    },
+    {
+      question: "AI 解決方案需要什麼軟硬體環境？",
+      answer:
+        "依方案不同有所差異。若為雲端部署，我們可在各種 AI 雲平台運行，客戶端只需配置訪問權限。若為私有化部署，可能需要具備GPU運算資源，我們會提供最低運算需求建議並協助導入。",
+    },
   ],
   blog_posts: [
     {
@@ -64,88 +128,285 @@ export const siteContent = {
       category: "技術入門",
       date: "2026/04",
       summary: "探討如何利用 RAG 技術結合企業內部知識庫，打造高準確率的智能問答系統。",
-      tags: ["檢索增強生成", "RAG 技術"]
+      tags: ["檢索增強生成", "RAG 技術"],
     },
     {
       title: "企業 LLMOps 架構規劃指南",
       category: "實作指南",
       date: "2026/05",
       summary: "為企業 IT 團隊提供的 LLMOps 部署白皮書，涵蓋模型訓練、部署與監控的最佳實踐。",
-      tags: ["LLMOps 服務", "AI 架構"]
+      tags: ["LLMOps 服務", "AI 架構"],
     },
     {
       title: "AI 在金融業的應用案例",
       category: "產業動態",
       date: "2026/06",
       summary: "深入分析 AI 如何在金融業實現智能風控、自動化客服與精準行銷。",
-      tags: ["金融 AI 應用", "智能風控"]
+      tags: ["金融 AI 應用", "智能風控"],
     },
     {
       title: "私有化部署 vs 雲端部署優劣比較",
       category: "技術入門",
       date: "2026/07",
-      summary: "企業在選擇 AI 基礎設施時，該如何評估私有化與雲端部署的安全性與成本？",
-      tags: ["私有化 AI", "雲端 AI 安全"]
-    }
+      summary: "企業在選擇 AI 基礎設施時，該如何評估私有化部署與雲端部署的安全性與成本？",
+      tags: ["私有化 AI", "雲端 AI 安全"],
+    },
   ],
   careers: {
-    culture: "在宸希科技，我們重視「持續學習」與「開放溝通」。我們提供彈性工時、優渥的健康檢查與進修補助，鼓勵團隊成員在 AI 領域不斷突破自我。",
+    culture:
+      "在宸希科技，我們重視「持續學習」與「開放溝通」。我們提供彈性工時、優渥的健康檢查與進修補助，鼓勵團隊成員在 AI 領域不斷突破自我。",
     openings: [
       {
         title: "資深 AI 工程師 (Senior AI Engineer)",
         department: "研發部",
         location: "台北市",
         type: "全職",
-        description: "負責 LLM 模型微調、RAG 系統架構設計與效能優化。"
+        description: "負責 LLM 模型微調、RAG 系統架構設計與效能優化。",
       },
       {
         title: "AI 專案經理 (AI Project Manager)",
         department: "專案管理部",
         location: "台北市",
         type: "全職",
-        description: "負責企業級 AI 導入專案的時程控管、跨部門溝通與客戶需求訪談。"
+        description: "負責企業級 AI 導入專案的時程控管、跨部門溝通與客戶需求訪談。",
       },
       {
         title: "全端軟體工程師 (Full-Stack Developer)",
         department: "研發部",
         location: "台北市",
         type: "全職",
-        description: "負責 AI 應用平台的前後端開發與系統整合。"
-      }
-    ]
+        description: "負責 AI 應用平台的前後端開發與系統整合。",
+      },
+    ],
   },
   privacy: {
     lastUpdated: "2026年3月15日",
     content: [
       {
         title: "隱私權聲明",
-        text: "宸希科技重視您的隱私與資料安全，請查閱我們的隱私權聲明與服務條款以了解詳細信息。我們承諾在收集、處理及利用您的個人資料時，嚴格遵守相關法令規範。"
+        text:
+          "宸希科技重視您的隱私與資料安全，請查閱我們的隱私權聲明與服務條款以了解詳細信息。我們承諾在收集、處理及利用您的個人資料時，嚴格遵守相關法令規範。",
       },
       {
         title: "資料收集與使用",
-        text: "我們僅在您主動提供（如填寫聯絡表單）或為提供服務所必須時收集您的資訊。這些資訊將僅用於回覆您的詢問、提供客製化服務或改善我們的網站體驗。"
+        text:
+          "我們僅在您主動提供（如填寫聯絡表單）或為提供服務所必須時收集您的資訊。這些資訊將僅用於回覆您的詢問、提供客製化服務或改善我們的網站體驗。",
       },
       {
         title: "Cookie 條款",
-        text: "本網站使用 Cookie 以優化您的瀏覽體驗。您可以隨時透過瀏覽器設定拒絕 Cookie，但這可能會影響網站部分功能的正常運作。"
-      }
-    ]
+        text: "本網站使用 Cookie 以優化您的瀏覽體驗。您可以隨時透過瀏覽器設定拒絕 Cookie，但這可能會影響網站部分功能的正常運作。",
+      },
+    ],
   },
   contact_form_fields: ["姓名", "公司", "職位", "Email", "電話", "需求類型", "詳細說明"],
   auto_reply: {
     subject: "感謝您聯繫宸希科技",
-    body: "您好，我們已收到您的詢問，專人將盡快與您聯繫。感謝您的支持！\n\n宸希科技 客服團隊"
+    body: "您好，我們已收到您的詢問，專人將盡快與您聯繫。感謝您的支持！\n\n宸希科技 客服團隊",
   },
   trust_elements: {
     clients: ["XX金融", "YY製造", "ZZ科技"],
     partners: ["Microsoft", "AWS", "NVIDIA"],
     awards: ["2024 微軟年度最佳合作夥伴", "ISO27001 認證"],
     media: ["《科技新報》評價：AI方案提升企業效率"],
-    metrics: { projects_completed: 200, client_satisfaction: "98%" }
+    metrics: { projects_completed: 200, client_satisfaction: "98%" },
   },
   seo_meta: {
     keywords: "企業 AI, LLMOps, RAG 平台, 智能轉型",
-    description: "宸希科技提供企業級AI解決方案，包括智慧工作流、系統整合與資料自動化，助力企業快速實現數位轉型。"
-  }
+    description: "宸希科技提供企業級AI解決方案，包括智慧工作流、系統整合與資料自動化，助力企業快速實現數位轉型。",
+  },
 };
+
+export const siteContentEn: SiteContent = {
+  companyName: "ChenHsi Technology",
+  companyNameZh: "ChenHsi",
+  hero_title: "Enterprise AI Integration, Made Practical",
+  hero_subtitle: "From LLMOps to intelligent Q&A—deploy AI that improves day-to-day operations and decision making.",
+  hero_image_alt: "ChenHsi Technology AI solutions illustration",
+  about_title: "About ChenHsi",
+  about_paragraph:
+    "ChenHsi is an enterprise AI integration team combining strong engineering with hands-on industry experience. We help organizations turn AI into measurable results—faster workflows, cleaner data, and better decisions. We stay customer-first and keep innovating to deliver reliable solutions that scale.",
+  services: [
+    { title: "LLMOps Architecture", description: "Design stable model deployment environments and optimize compute and cost." },
+    { title: "System Integration Consulting", description: "Connect existing systems with AI platforms to break data silos and improve collaboration." },
+    { title: "Cloud AI Integration", description: "Integrate AWS/Azure/GCP AI services to deliver NLP and computer vision capabilities fast." },
+    { title: "RAG Knowledge Platform", description: "Build retrieval-augmented generation platforms for document Q&A and data analysis." },
+  ],
+  case_studies: [
+    {
+      title: "Law Firm Intelligent Knowledge Workflow",
+      paragraph:
+        "Built an AI knowledge platform for a multinational law firm to organize and retrieve distributed legal documents. Search efficiency improved by 40%, significantly increasing satisfaction.",
+      client_quote:
+        "“With AI, we can locate key clauses faster—our productivity improved dramatically.” — Partner, Law Firm (Michael)",
+    },
+    {
+      title: "Shipping Company Automated Data Synchronization",
+      paragraph:
+        "Solved multi-inventory synchronization challenges for a logistics business using AI for automated matching and correction. Achieved 100% cross-system data accuracy and reduced monthly reporting from hours to minutes.",
+      client_quote:
+        "“AI automatically organizes our order data—operational efficiency is clearly higher.” — IT Manager, Shipping (Kevin)",
+    },
+    {
+      title: "Fresh Grocery E-commerce Intelligent Customer Service",
+      paragraph:
+        "Deployed an AI support agent to handle frequent questions. Automation reached 85%, saving 30% daily manual hours and improving satisfaction by 15%.",
+      client_quote:
+        "“AI support lets us focus on complex cases, and the customer experience improved.” — COO, E-commerce (David)",
+    },
+    {
+      title: "Automated Lead Screening & Tracking",
+      paragraph:
+        "A solar technology company needed to verify public information across hundreds of thousands of factories to shortlist leads. Automation made verification 100× faster—reducing a 3+ month effort to 1 day and accelerating business development.",
+      client_quote:
+        "“Automation saved huge time and helped our team focus on high-value conversations.” — GM, Solar Tech (Willy)",
+    },
+  ],
+  testimonials: [
+    {
+      name: "Client A",
+      position: "CIO",
+      company: "Finance",
+      quote: "ChenHsi modernized our risk workflow and improved decision speed significantly.",
+      video_script:
+        "Before ChenHsi, our process required heavy manual effort. Now AI flags anomalies automatically. The team is professional and fast.",
+    },
+    {
+      name: "Client B",
+      position: "CEO",
+      company: "Enterprise",
+      quote: "Their team delivered an industry-fit solution quickly and boosted our operational efficiency.",
+      video_script:
+        "We had serious data silos. ChenHsi's AI integration connected our systems and accelerated decision making.",
+    },
+  ],
+  faq: [
+    {
+      question: "What does your engagement process look like?",
+      answer:
+        "We start with requirements and data assessment, then propose a tailored plan. Delivery typically includes scenario analysis, development, testing, and deployment—plus training and ongoing support.",
+    },
+    {
+      question: "How long does delivery take?",
+      answer:
+        "It depends on scope. Small projects usually take 1–2 months; larger integrations may take 4–6 months. We’ll provide milestones during the assessment phase.",
+    },
+    {
+      question: "How is pricing calculated?",
+      answer:
+        "Depending on scope, we offer:\n1) One-time project pricing based on complexity.\n2) Pre-purchased professional service hours that can be used across consulting, development, testing, deployment, training, and maintenance.",
+    },
+    {
+      question: "Do you provide training after go-live?",
+      answer:
+        "Yes. We provide training and documentation, including on-site sessions, guides, and tutorial videos to ensure successful adoption.",
+    },
+    {
+      question: "Can you extend our existing AI stack?",
+      answer:
+        "Yes. We can integrate with your existing models/platforms, optimize performance, add features, and provide tuning and API integration guidance for gradual upgrades.",
+    },
+    {
+      question: "What infrastructure is required?",
+      answer:
+        "It depends. For cloud deployments we can run on major AI cloud platforms with access controls. For on-prem deployments, GPUs may be required; we’ll recommend minimum compute and assist with setup.",
+    },
+  ],
+  blog_posts: [
+    {
+      title: "RAG Implementation in Practice",
+      category: "Getting Started",
+      date: "2026/04",
+      summary: "How to combine RAG with enterprise knowledge bases to build high-accuracy Q&A systems.",
+      tags: ["RAG", "Retrieval-Augmented Generation"],
+    },
+    {
+      title: "Enterprise LLMOps Architecture Guide",
+      category: "Implementation Guide",
+      date: "2026/05",
+      summary: "A practical guide covering training, serving, and monitoring best practices for IT teams.",
+      tags: ["LLMOps", "AI Architecture"],
+    },
+    {
+      title: "AI Use Cases in Finance",
+      category: "Industry",
+      date: "2026/06",
+      summary: "How finance teams apply AI to risk control, support automation, and analytics.",
+      tags: ["Finance AI", "Risk Control"],
+    },
+    {
+      title: "On-Prem vs Cloud Deployment",
+      category: "Getting Started",
+      date: "2026/07",
+      summary: "Evaluate security and cost trade-offs when choosing AI infrastructure.",
+      tags: ["Private AI", "Cloud Security"],
+    },
+  ],
+  careers: {
+    culture:
+      "At ChenHsi, we value continuous learning and open communication. We offer flexible hours, strong benefits, and learning support so the team can keep pushing boundaries in AI.",
+    openings: [
+      {
+        title: "Senior AI Engineer",
+        department: "R&D",
+        location: "Taipei",
+        type: "Full-time",
+        description: "Fine-tune LLMs, design RAG architectures, and optimize performance.",
+      },
+      {
+        title: "AI Project Manager",
+        department: "Project Management",
+        location: "Taipei",
+        type: "Full-time",
+        description: "Manage enterprise AI projects, coordinate stakeholders, and run discovery with clients.",
+      },
+      {
+        title: "Full-Stack Developer",
+        department: "R&D",
+        location: "Taipei",
+        type: "Full-time",
+        description: "Build AI applications and integrate systems across frontend and backend.",
+      },
+    ],
+  },
+  privacy: {
+    lastUpdated: "Mar 15, 2026",
+    content: [
+      {
+        title: "Privacy Statement",
+        text:
+          "We take your privacy and data security seriously. This statement explains how we collect, use, and protect your information.",
+      },
+      {
+        title: "Data Collection & Use",
+        text:
+          "We collect information only when you provide it (e.g., via the contact form) or when required to deliver services. We use it to respond to inquiries and improve your experience.",
+      },
+      {
+        title: "Cookies",
+        text:
+          "This website uses cookies to improve browsing experience. You may disable cookies in your browser settings, but some features may not work properly.",
+      },
+    ],
+  },
+  contact_form_fields: ["Name", "Company", "Title", "Email", "Phone", "Inquiry Type", "Message"],
+  auto_reply: {
+    subject: "Thanks for contacting ChenHsi",
+    body: "Hello, we’ve received your inquiry and will get back to you soon. Thank you!\n\nChenHsi Support Team",
+  },
+  trust_elements: {
+    clients: ["Client A", "Client B", "Client C"],
+    partners: ["Microsoft", "AWS", "NVIDIA"],
+    awards: ["Microsoft Partner Award 2024", "ISO27001 Certified"],
+    media: ["Media review: AI solutions improved enterprise efficiency"],
+    metrics: { projects_completed: 200, client_satisfaction: "98%" },
+  },
+  seo_meta: {
+    keywords: "enterprise AI, LLMOps, RAG, digital transformation",
+    description:
+      "ChenHsi delivers enterprise AI solutions across knowledge workflows, system integration, and automation to accelerate digital transformation.",
+  },
+};
+
+// Backwards-compatible default export used by existing pages
+export const siteContent = siteContentZh;
 

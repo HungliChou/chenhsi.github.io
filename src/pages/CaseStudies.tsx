@@ -1,7 +1,10 @@
-import { siteContent } from "../data/content";
 import { ArrowUpRight, Quote, Building2, Ship, ShoppingBag, Sun } from "lucide-react";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 export default function CaseStudies() {
+  const { lang } = useI18n();
+  const siteContent = useSiteContent();
   const icons = [Building2, Ship, ShoppingBag, Sun];
   const caseImages = [
     "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?auto=format&fit=crop&w=1600&q=80", // 法律：大量文件、效率感
@@ -18,13 +21,25 @@ export default function CaseStudies() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">
-            成功案例
+            {lang === "en" ? "Case Studies" : "成功案例"}
           </h1>
           <h2 className="text-5xl font-black mb-6 leading-tight">
-            跨產業實證，<br />見證 AI 轉型力量
+            {lang === "en" ? (
+              <>
+                Proven across industries,
+                <br />
+                deliver real AI impact
+              </>
+            ) : (
+              <>
+                跨產業實證，<br />見證 AI 轉型力量
+              </>
+            )}
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed font-light max-w-3xl mx-auto">
-            從跨國法律事務所到物流企業，宸希科技的 AI 解決方案已為多種產業帶來卓越效益，提升流程效率與決策品質。
+            {lang === "en"
+              ? "From global law firms to logistics operators, our AI solutions deliver measurable gains in efficiency and decision quality."
+              : "從跨國法律事務所到物流企業，宸希科技的 AI 解決方案已為多種產業帶來卓越效益，提升流程效率與決策品質。"}
           </p>
         </div>
       </section>
@@ -48,7 +63,7 @@ export default function CaseStudies() {
                     </div>
                     <div className="lg:col-span-7 p-10 lg:p-16">
                       <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 text-primary-light text-sm font-bold mb-6">
-                        案例研究 {idx + 1}
+                        {lang === "en" ? `Case Study ${idx + 1}` : `案例研究 ${idx + 1}`}
                       </div>
                       <h3 className="text-3xl font-black text-white mb-6 leading-tight">
                         {caseStudy.title}

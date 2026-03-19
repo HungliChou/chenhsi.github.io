@@ -1,26 +1,67 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, CheckCircle2, BarChart3, Database, ShieldCheck, Zap, FileText, MessageSquare, Workflow, Camera, TrendingUp, Users, LineChart } from "lucide-react";
+import { useI18n } from "../i18n/I18nProvider";
 
 export default function Home() {
-  const solutions = [
-    { name: "KnowledgeFlow 智識中樞", desc: "打造企業專屬的智慧知識入口，讓 SOP、制度、FAQ、培訓資料更容易被查詢與應用。", icon: Database },
-    { name: "DocuMind 文件智匯", desc: "讓 PDF、掃描件、表單、合約從人工整理，轉為可擷取、可比對的結構化資訊。", icon: FileText },
-    { name: "ServicePilot 智能客服引擎", desc: "透過 AI 提升客服效率、自助服務能力與回覆一致性，減少重複性問答負擔。", icon: MessageSquare },
-    { name: "WorkSprint 協作加速器", desc: "協助企業加快會議摘要、郵件撰寫、報表整理、公告撰寫與跨系統資訊查詢。", icon: Zap },
-    { name: "FlowOps 智動流程中台", desc: "將 AI 延伸到實際流程中，協助表單受理、工單分派、任務追蹤與審批流程優化。", icon: Workflow },
-    { name: "RiskLens 合規洞察台", desc: "支援企業處理法遵、內規、條款比對、稽核與文件風險提示工作。", icon: ShieldCheck },
-    { name: "FieldVision 現場視巡助手", desc: "將現場照片、巡檢紀錄、儀表資訊與影像證據整理流程導入 AI，提升現場管理效率。", icon: Camera },
-    { name: "CommerceBoost 業務成長助手", desc: "協助業務與行銷團隊更快整理資訊、產出內容、推進商機與準備提案。", icon: TrendingUp },
-    { name: "TalentDesk 人資行政助手", desc: "協助 HR、行政與內訓團隊提升履歷整理、制度溝通、訓練與內部服務效率。", icon: Users },
-    { name: "FinSight 財務洞察引擎", desc: "支援財務文件整理、模型試算、數據檢查、關聯分析與預測輔助，強化財務分析能力。", icon: LineChart },
-  ];
+  const { lang } = useI18n();
 
-  const industries = [
-    "製造業", "金融 / 保險", "醫療 / 診所 / 健康服務", "零售 / 電商 / 品牌", 
-    "房地產 / 建設 / 物業管理", "法律 / 會計 / 顧問服務", "物流 / 倉儲 / 運輸", 
-    "教育 / 補教 / 培訓", "科技公司 / SaaS / 軟體服務", "人資服務 / 招募 / 企業 HR", 
-    "政府 / 公協會 / 非營利組織", "旅宿 / 餐飲 / 服務業"
-  ];
+  const solutions =
+    lang === "en"
+      ? [
+          { name: "KnowledgeFlow", desc: "A governed knowledge entry point for SOPs, policies, FAQs, and training.", icon: Database },
+          { name: "DocuMind", desc: "Turn PDFs, scans, forms, and contracts into structured, usable data.", icon: FileText },
+          { name: "ServicePilot", desc: "Improve support efficiency and consistency with AI assistance.", icon: MessageSquare },
+          { name: "WorkSprint", desc: "Accelerate summaries, emails, reporting, and cross-system lookup.", icon: Zap },
+          { name: "FlowOps", desc: "Workflow agents for intake, routing, tracking, and approvals.", icon: Workflow },
+          { name: "RiskLens", desc: "Compliance knowledge, clause comparison, audits, and document risk hints.", icon: ShieldCheck },
+          { name: "FieldVision", desc: "Structure photos and inspection records to improve on-site operations.", icon: Camera },
+          { name: "CommerceBoost", desc: "Enable sales & marketing to move faster from insight to proposal.", icon: TrendingUp },
+          { name: "TalentDesk", desc: "Boost HR/admin efficiency for internal services and training.", icon: Users },
+          { name: "FinSight", desc: "Finance insights via validation, cross-checks, and scenario modeling.", icon: LineChart },
+        ]
+      : [
+          { name: "KnowledgeFlow 智識中樞", desc: "打造企業專屬的智慧知識入口，讓 SOP、制度、FAQ、培訓資料更容易被查詢與應用。", icon: Database },
+          { name: "DocuMind 文件智匯", desc: "讓 PDF、掃描件、表單、合約從人工整理，轉為可擷取、可比對的結構化資訊。", icon: FileText },
+          { name: "ServicePilot 智能客服引擎", desc: "透過 AI 提升客服效率、自助服務能力與回覆一致性，減少重複性問答負擔。", icon: MessageSquare },
+          { name: "WorkSprint 協作加速器", desc: "協助企業加快會議摘要、郵件撰寫、報表整理、公告撰寫與跨系統資訊查詢。", icon: Zap },
+          { name: "FlowOps 智動流程中台", desc: "將 AI 延伸到實際流程中，協助表單受理、工單分派、任務追蹤與審批流程優化。", icon: Workflow },
+          { name: "RiskLens 合規洞察台", desc: "支援企業處理法遵、內規、條款比對、稽核與文件風險提示工作。", icon: ShieldCheck },
+          { name: "FieldVision 現場視巡助手", desc: "將現場照片、巡檢紀錄、儀表資訊與影像證據整理流程導入 AI，提升現場管理效率。", icon: Camera },
+          { name: "CommerceBoost 業務成長助手", desc: "協助業務與行銷團隊更快整理資訊、產出內容、推進商機與準備提案。", icon: TrendingUp },
+          { name: "TalentDesk 人資行政助手", desc: "協助 HR、行政與內訓團隊提升履歷整理、制度溝通、訓練與內部服務效率。", icon: Users },
+          { name: "FinSight 財務洞察引擎", desc: "支援財務文件整理、模型試算、數據檢查、關聯分析與預測輔助，強化財務分析能力。", icon: LineChart },
+        ];
+
+  const industries =
+    lang === "en"
+      ? [
+          "Manufacturing",
+          "Finance & Insurance",
+          "Healthcare",
+          "Retail & E-commerce",
+          "Real Estate & Property",
+          "Legal & Consulting",
+          "Logistics & Transportation",
+          "Education & Training",
+          "SaaS & Software",
+          "HR & Recruitment",
+          "Government & NGO",
+          "Hospitality & Food Service",
+        ]
+      : [
+          "製造業",
+          "金融 / 保險",
+          "醫療 / 診所 / 健康服務",
+          "零售 / 電商 / 品牌",
+          "房地產 / 建設 / 物業管理",
+          "法律 / 會計 / 顧問服務",
+          "物流 / 倉儲 / 運輸",
+          "教育 / 補教 / 培訓",
+          "科技公司 / SaaS / 軟體服務",
+          "人資服務 / 招募 / 企業 HR",
+          "政府 / 公協會 / 非營利組織",
+          "旅宿 / 餐飲 / 服務業",
+        ];
 
   return (
     <div className="flex flex-col min-h-screen font-sans text-slate-200">
@@ -34,30 +75,46 @@ export default function Home() {
             <div className="text-white">
               <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 mb-8">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(0,240,255,0.8)]"></span>
-                <span className="text-sm font-medium tracking-wide text-white/90">企業級 AI 解決方案</span>
+                <span className="text-sm font-medium tracking-wide text-white/90">
+                  {lang === "en" ? "Enterprise AI Solutions" : "企業級 AI 解決方案"}
+                </span>
               </div>
               <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 leading-[1.1]">
-                讓 AI 真正進入<br className="hidden md:block" />企業營運流程
+                {lang === "en" ? (
+                  <>
+                    Bring AI into
+                    <br className="hidden md:block" />
+                    real operations
+                  </>
+                ) : (
+                  <>
+                    讓 AI 真正進入<br className="hidden md:block" />企業營運流程
+                  </>
+                )}
               </h1>
               <p className="text-xl md:text-2xl text-blue-100 mb-6 leading-relaxed max-w-2xl font-light">
-                我們協助企業導入可落地的 AI 解決方案，將 AI 真正整合進日常工作場景，幫助團隊提升效率、降低重工並加速成長。
+                {lang === "en"
+                  ? "We help organizations deploy practical AI—integrated into everyday workflows to improve efficiency and accelerate growth."
+                  : "我們協助企業導入可落地的 AI 解決方案，將 AI 真正整合進日常工作場景，幫助團隊提升效率、降低重工並加速成長。"}
               </p>
               <p className="text-sm text-slate-400 mb-10 leading-relaxed max-w-2xl">
-                讓知識更容易被查詢、文件更容易被整理、客服更快回應、流程更順暢、財務與營運分析更有依據。
+                {lang === "en"
+                  ? "Make knowledge searchable, documents structured, support faster, workflows smoother, and analytics more reliable."
+                  : "讓知識更容易被查詢、文件更容易被整理、客服更快回應、流程更順暢、財務與營運分析更有依據。"}
               </p>
               <div className="flex flex-col sm:flex-row gap-4">
                 <Link
                   to="/contact"
                   className="inline-flex justify-center items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-light transition-all shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)] hover:-translate-y-1"
                 >
-                  預約諮詢
+                  {lang === "en" ? "Book a call" : "預約諮詢"}
                   <ArrowRight size={20} />
                 </Link>
                 <Link
                   to="/services"
                   className="inline-flex justify-center items-center gap-2 bg-primary-light/20 text-white border border-white/30 px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-light/30 transition-all backdrop-blur-sm"
                 >
-                  了解適合您的 AI 方案
+                  {lang === "en" ? "Explore solutions" : "了解適合您的 AI 方案"}
                 </Link>
               </div>
             </div>

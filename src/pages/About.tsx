@@ -1,10 +1,13 @@
-import { siteContent } from "../data/content";
 import { Target, Award, MessageCircleQuestion, ChevronDown, ChevronUp } from "lucide-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 export default function About() {
   const [openIndex, setOpenIndex] = useState<number | null>(0);
+  const { lang } = useI18n();
+  const siteContent = useSiteContent();
 
   const toggleFAQ = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
@@ -22,10 +25,22 @@ export default function About() {
               {siteContent.about_title}
             </h1>
             <h2 className="text-5xl font-black mb-6 leading-tight">
-              深耕企業智能，<br />專業團隊首選
+              {lang === "en" ? (
+                <>
+                  Enterprise AI, done right.
+                  <br />
+                  A team you can trust
+                </>
+              ) : (
+                <>
+                  深耕企業智能，<br />專業團隊首選
+                </>
+              )}
             </h2>
             <p className="text-xl text-blue-100 leading-relaxed font-light">
-              累積多年實戰經驗，服務多元產業。我們致力於解鎖 AI 價值，為客戶創造商業奇蹟。
+              {lang === "en"
+                ? "With years of hands-on delivery across industries, we focus on unlocking real AI value and measurable outcomes."
+                : "累積多年實戰經驗，服務多元產業。我們致力於解鎖 AI 價值，為客戶創造商業奇蹟。"}
             </p>
           </div>
         </div>
@@ -37,7 +52,9 @@ export default function About() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h3 className="text-3xl font-black text-white mb-6">
-                我們的使命：解鎖 AI 價值，創造商業奇蹟
+                {lang === "en"
+                  ? "Our mission: unlock AI value and create business impact"
+                  : "我們的使命：解鎖 AI 價值，創造商業奇蹟"}
               </h3>
               <p className="text-lg text-slate-400 leading-relaxed mb-8">
                 {siteContent.about_paragraph}
@@ -49,8 +66,12 @@ export default function About() {
                     <Target size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">客戶為先</h4>
-                    <p className="text-slate-400">深入了解產業痛點，量身打造最適合的解決方案。</p>
+                    <h4 className="text-xl font-bold text-white mb-2">{lang === "en" ? "Customer-first" : "客戶為先"}</h4>
+                    <p className="text-slate-400">
+                      {lang === "en"
+                        ? "We start from real workflows and constraints to design solutions that fit."
+                        : "深入了解產業痛點，量身打造最適合的解決方案。"}
+                    </p>
                   </div>
                 </div>
                 <div className="flex gap-4">
@@ -58,8 +79,12 @@ export default function About() {
                     <Award size={24} />
                   </div>
                   <div>
-                    <h4 className="text-xl font-bold text-white mb-2">永續創新</h4>
-                    <p className="text-slate-400">持續挑戰技術極限，保持業界領先地位。</p>
+                    <h4 className="text-xl font-bold text-white mb-2">{lang === "en" ? "Sustained innovation" : "永續創新"}</h4>
+                    <p className="text-slate-400">
+                      {lang === "en"
+                        ? "We keep improving reliability, speed, and quality—so your AI stays useful over time."
+                        : "持續挑戰技術極限，保持業界領先地位。"}
+                    </p>
                   </div>
                 </div>
               </div>
@@ -82,9 +107,11 @@ export default function About() {
       <section className="py-24 border-t border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-14">
-            <h3 className="text-3xl font-black text-white">常見問答</h3>
+            <h3 className="text-3xl font-black text-white">{lang === "en" ? "FAQ" : "常見問答"}</h3>
             <p className="text-slate-400 mt-4">
-              快速了解合作流程、時程與導入條件，若需要更細節的建議也歡迎直接聯繫我們。
+              {lang === "en"
+                ? "Understand the engagement process, timeline, and adoption requirements. For detailed advice, feel free to contact us."
+                : "快速了解合作流程、時程與導入條件，若需要更細節的建議也歡迎直接聯繫我們。"}
             </p>
           </div>
 
@@ -125,13 +152,17 @@ export default function About() {
 
           <div className="mt-16 text-center bg-white/5 p-10 rounded-3xl border border-white/10">
             <MessageCircleQuestion className="mx-auto text-primary-light mb-4" size={48} />
-            <h4 className="text-2xl font-black text-white mb-4">想更快釐清需求？</h4>
-            <p className="text-slate-400 mb-8">我們可以協助您用最短時間確認可行方案、時程與預期效益。</p>
+            <h4 className="text-2xl font-black text-white mb-4">{lang === "en" ? "Need clarity fast?" : "想更快釐清需求？"}</h4>
+            <p className="text-slate-400 mb-8">
+              {lang === "en"
+                ? "We can help you validate the best approach, timeline, and expected outcomes."
+                : "我們可以協助您用最短時間確認可行方案、時程與預期效益。"}
+            </p>
             <Link
               to="/contact"
               className="inline-flex items-center gap-2 bg-primary text-white px-8 py-3 rounded-full font-bold hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)]"
             >
-              聯絡我們
+              {lang === "en" ? "Contact us" : "聯絡我們"}
             </Link>
           </div>
         </div>

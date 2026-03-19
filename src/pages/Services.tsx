@@ -2,7 +2,7 @@ import { ArrowRight, CheckCircle2, Database, FileText, MessageSquare, Zap, Workf
 import { Link } from "react-router-dom";
 import { useI18n } from "../i18n/I18nProvider";
 
-const solutions = [
+const solutionsZh = [
   {
     id: "knowledgeflow",
     icon: Database,
@@ -115,69 +115,325 @@ const solutions = [
   }
 ];
 
+const solutionsEn = [
+  {
+    id: "knowledgeflow",
+    icon: Database,
+    name: "KnowledgeFlow Knowledge Hub",
+    title: "Make enterprise knowledge searchable, understandable, and usable",
+    intro:
+      "Organizations generate and accumulate knowledge every day—SOPs, policies, process docs, FAQs, team know‑how, training materials, and project documents. But this knowledge is often scattered across folders, cloud drives, systems, or individual inboxes. The result: hard-to-find answers, costly handovers, and repeated questions that slow onboarding and cross-team collaboration.",
+    description:
+      "KnowledgeFlow turns distributed knowledge into a governed AI entry point with search, citations, and access control. Whether you’re looking up SOPs, policies, FAQs, or team documentation, people can reach the right information faster—reducing back-and-forth and information gaps.",
+    scenarios: [
+      "SOPs, policies, and FAQs are scattered across files and systems",
+      "Critical knowledge relies on a few senior members’ verbal transfer",
+      "Onboarding and handover is slow and inconsistent",
+      "Teams spend too much time finding the correct document and version",
+    ],
+    applications: [
+      "Enterprise knowledge assistant",
+      "SOP / policy / compliance Q&A",
+      "FAQ intelligent Q&A",
+      "Multi-document, cited answers",
+      "Onboarding Q&A assistant",
+      "Department knowledge search portal",
+    ],
+    benefits: [
+      "Faster knowledge retrieval",
+      "Lower repetitive Q&A cost",
+      "Improved knowledge transfer and onboarding speed",
+      "More consistent, reusable internal information",
+    ],
+  },
+  {
+    id: "documind",
+    icon: FileText,
+    name: "DocuMind Document Intelligence",
+    title: "Turn hard-to-handle documents into usable data assets",
+    intro:
+      "Teams handle large volumes of PDFs, scans, forms, applications, contracts, invoices, quotes, and attachments. Formats vary and sources are fragmented. Fully manual review and data entry is slow—and small misses can cause downstream errors.",
+    description:
+      "DocuMind digitizes and automates document workflows with OCR, field extraction, classification, summarization, and comparison. Documents become searchable, verifiable, and reusable—reducing per-document effort while improving throughput and data quality.",
+    scenarios: [
+      "Large volumes of PDFs/scans/forms require manual handling",
+      "Contracts and applications need line-by-line checks",
+      "Version and field differences are hard to track",
+      "Paper and attachment documents are difficult to convert into usable data",
+    ],
+    applications: [
+      "OCR extraction",
+      "Form & field extraction",
+      "Contract summarization",
+      "Clause difference comparison",
+      "Document classification and organization",
+      "Missing-field checks",
+      "Structured processing for PDFs and scans",
+    ],
+    benefits: [
+      "Faster document organization and retrieval",
+      "Reduced manual review and entry workload",
+      "Improved approval and review cycle time",
+      "Higher data usability for analytics and automation",
+    ],
+  },
+  {
+    id: "servicepilot",
+    icon: MessageSquare,
+    name: "ServicePilot AI Customer Support",
+    title: "Faster, more consistent support—free your team for high-value cases",
+    intro:
+      "Support teams face high volumes of repetitive questions and strict response-time expectations. When knowledge is distributed across FAQs, documentation, product info, and past tickets, agents spend time searching and responses vary by experience—hurting consistency.",
+    description:
+      "ServicePilot enables self-service Q&A, suggested replies, complaint summarization, and ticket routing. Frontline support becomes faster and more consistent, while agents can focus on complex and high-value scenarios.",
+    scenarios: [
+      "High volume of repetitive questions",
+      "Inconsistent response quality and wording",
+      "Complaints and tickets require manual categorization and summarization",
+      "Multi-language or multi-channel support increases workload",
+    ],
+    applications: [
+      "AI support Q&A",
+      "FAQ self-service portal",
+      "Suggested reply drafts",
+      "Complaint summarization and categorization",
+      "Ticket routing",
+      "Multi-language support assistance",
+      "Knowledge recommendations for agents",
+    ],
+    benefits: [
+      "Faster response times",
+      "More consistent support quality",
+      "Less repetitive manual work",
+      "Better knowledge utilization and self-service",
+    ],
+  },
+  {
+    id: "worksprint",
+    icon: Zap,
+    name: "WorkSprint Collaboration Accelerator",
+    title: "Make meetings, emails, reporting, and admin work more efficient",
+    intro:
+      "Everyday admin and information‑processing tasks consume significant time—meeting notes, action items, email drafting, report summaries, announcements, and cross-system lookups. These high-frequency tasks can prevent teams from focusing on decisions and execution.",
+    description:
+      "WorkSprint brings AI into daily work to speed up writing and summarization, reduce effort in organizing information, and improve communication rhythm across teams.",
+    scenarios: [
+      "Too many meetings; note-taking and follow-ups are time-consuming",
+      "Emails, announcements, and report drafts require heavy writing",
+      "Leaders need quick cross-team context",
+      "Employees jump between systems to find information",
+    ],
+    applications: [
+      "Meeting summaries and action items",
+      "Email draft generation",
+      "Report summaries",
+      "Announcements and internal writing",
+      "Department information assistant",
+      "Executive briefing assistant",
+      "Cross-system query assistant",
+    ],
+    benefits: [
+      "Shorter time spent on meeting/admin wrap-up",
+      "More efficient information flow",
+      "Less duplicate writing and reporting work",
+      "More focus on high-value work",
+    ],
+  },
+  {
+    id: "flowops",
+    icon: Workflow,
+    name: "FlowOps Workflow Orchestration",
+    title: "AI that doesn’t just answer—AI that participates in your workflows",
+    intro:
+      "Many organizations have digital systems, yet intake, routing, case tracking, approvals, and cross-team handoffs still involve manual judgment and data re-entry. This creates delays and increases tracking overhead.",
+    description:
+      "FlowOps extends AI into real processes: task categorization, initial triage, data整理, and work assignment. Workflows become clearer, faster, and easier to manage—working alongside your existing tools.",
+    scenarios: [
+      "Tickets/cases/forms require manual intake and routing",
+      "Tracking tasks is error-prone and delays occur",
+      "Approvals and admin workflows span multiple teams",
+      "Email/app/support info needs整理 before entering workflows",
+    ],
+    applications: [
+      "AI agent workflows",
+      "Form intake assistant",
+      "Ticket creation and routing",
+      "Email classification and forwarding",
+      "Approval workflow assistance",
+      "Task tracking and reminders",
+      "ERP / CRM query agent",
+    ],
+    benefits: [
+      "Higher workflow throughput",
+      "Less manual routing and tracking overhead",
+      "Smoother cross-team handoffs",
+      "AI becomes part of daily operations",
+    ],
+  },
+  {
+    id: "risklens",
+    icon: ShieldCheck,
+    name: "RiskLens Compliance Insights",
+    title: "Make compliance, audit prep, and contract review faster and more reliable",
+    intro:
+      "For organizations with strict compliance and review requirements, documents are heavy, rules are complex, and review work is tedious. In clause comparison, risk hints, application completeness checks, and audit evidence packaging, purely manual work is slow and easy to miss.",
+    description:
+      "RiskLens helps teams query internal rules, compare clauses, flag potential risks, organize audit files, and check for missing fields—improving efficiency, consistency, and traceability in compliance operations.",
+    scenarios: [
+      "Internal rules and compliance docs are numerous and frequently updated",
+      "Contract and clause review is time-consuming",
+      "Application completeness checks require heavy manual effort",
+      "Audit prep involves complex collection and cross-checking",
+    ],
+    applications: [
+      "Compliance knowledge Q&A",
+      "Clause difference comparison",
+      "Contract risk hints",
+      "Audit checklist assistant",
+      "Audit evidence organization",
+      "Regulatory update summaries",
+      "Missing-field checks for applications",
+    ],
+    benefits: [
+      "Faster compliance and review cycles",
+      "Less manual checking work",
+      "More consistent risk hints and document quality",
+      "Stronger internal control and audit support",
+    ],
+  },
+  {
+    id: "fieldvision",
+    icon: Camera,
+    name: "FieldVision Site Inspection Assistant",
+    title: "Organize photos, inspection records, and visual evidence—end to end",
+    intro:
+      "Across construction sites, stores, warehouses, equipment inspections, and field operations, teams often rely on manual notes, photo uploads, and report compilation. Without a systematic approach, evidence is hard to track and information becomes fragmented.",
+    description:
+      "FieldVision helps teams describe and organize site photos, generate inspection reports, recognize meter/plate text, and consolidate evidence and anomalies—making field reporting and follow-up faster and more structured.",
+    scenarios: [
+      "Too many photos; organization is time-consuming",
+      "Inspection records require manual consolidation",
+      "Meters/plates/forms require manual transcription",
+      "Anomaly logs and visual evidence are difficult to manage",
+    ],
+    applications: [
+      "Photo descriptions",
+      "Inspection report generation",
+      "Meter / nameplate OCR",
+      "Store / site / warehouse inspection organization",
+      "PPE safety checks",
+      "Evidence consolidation",
+      "Anomaly record organization",
+    ],
+    benefits: [
+      "Faster field reporting",
+      "Lower cost of photo/report compilation",
+      "Better inspection and anomaly tracking",
+      "Field information flows into downstream processes more easily",
+    ],
+  },
+  {
+    id: "commerceboost",
+    icon: TrendingUp,
+    name: "CommerceBoost Sales Growth Assistant",
+    title: "Help sales, marketing, and pre-sales move deals and content faster",
+    intro:
+      "Sales and marketing teams constantly prepare proposals, synthesize customer needs, produce copy, coordinate pre-sales, and track opportunities. When information is scattered and updates are frequent across customers and channels, teams spend more time整理 and drafting than advancing deals.",
+    description:
+      "CommerceBoost generates proposal drafts, summarizes customer needs, assists with RFP/RFI responses, produces product copy, and condenses opportunity context—so teams can focus on closing, optimization, and growth.",
+    scenarios: [
+      "Frequent proposal and pre-sales content creation",
+      "Customer needs and opportunity context scattered across sources",
+      "Copy and content must be updated quickly",
+      "Teams need faster next-step suggestions and deal summaries",
+    ],
+    applications: [
+      "Proposal draft generation",
+      "Customer requirement summaries",
+      "RFP / RFI response assistance",
+      "Product/service copy generation",
+      "Pre-sales Q&A assistant",
+      "Opportunity summaries and next-step suggestions",
+      "Sales knowledge Q&A",
+    ],
+    benefits: [
+      "Faster proposal and copy output",
+      "Better capture of customer requirements",
+      "Higher quality and speed in pre-sales responses",
+      "More time spent on deal progression and closing",
+    ],
+  },
+  {
+    id: "talentdesk",
+    icon: Users,
+    name: "TalentDesk HR & Admin Assistant",
+    title: "Make HR, admin, and training operations more structured and faster",
+    intro:
+      "From recruiting and resume screening to interview notes, onboarding, policy Q&A, and internal training, HR/admin teams handle repetitive information processing. Manual handling is slow and can degrade service experience and quality.",
+    description:
+      "TalentDesk accelerates document organization, policy lookup, and administrative support workflows—improving employee service efficiency and reducing operational pressure, so HR can focus on talent and org development.",
+    scenarios: [
+      "Recruiting and resume整理 takes time",
+      "Employee policy questions are highly repetitive",
+      "Onboarding materials are numerous and fragmented",
+      "Admin and training content preparation workload is heavy",
+    ],
+    applications: [
+      "Job description generation",
+      "Resume summaries",
+      "Interview note organization",
+      "Onboarding assistant",
+      "Employee handbook / policy Q&A",
+      "Training material summaries",
+      "Employee self-service assistant",
+    ],
+    benefits: [
+      "Higher HR/admin efficiency",
+      "Better policy communication and employee experience",
+      "Shorter recruiting and training support time",
+      "Lower repetitive admin workload",
+    ],
+  },
+  {
+    id: "finsight",
+    icon: LineChart,
+    name: "FinSight Finance Insights Engine",
+    title: "Faster, more reliable finance analysis with stronger insights",
+    intro:
+      "Finance work often involves many reports, spreadsheets, models, attachments, and cross-document validation. Manual checks are slow and a single wrong figure or formula can distort outcomes. When documents are highly interdependent, it’s hard to fully grasp impact and catch issues early.",
+    description:
+      "FinSight strengthens finance workflows with structured summarization, anomaly checks, cross-references, rapid model adjustments, dynamic parameters, and multi-scenario comparisons—helping teams catch issues earlier and understand impact faster.",
+    scenarios: [
+      "Large volumes of finance docs/reports/spreadsheets need manual checks",
+      "After model changes, overall impact is hard to evaluate quickly",
+      "Need rapid adjustments to models and parameters",
+      "Need to compare multiple scenarios or options",
+      "Budget/cost/P&L and scenario analysis takes too long",
+    ],
+    applications: [
+      "Rapid financial model adjustments",
+      "Multi-scenario comparisons",
+      "Dynamic parameter tuning",
+      "Finance doc summaries and key-point extraction",
+      "Field extraction and cross-checks",
+      "Spreadsheet/model validation assistance",
+      "Related-value anomaly hints",
+      "Budget, cost, and P&L analysis assistant",
+      "Consistency checks across multiple finance documents",
+    ],
+    benefits: [
+      "Faster finance data organization and interpretation",
+      "Lower model/report error risk",
+      "Faster anomaly detection and relationship discovery",
+      "Stronger budgeting and management analysis support",
+      "Quicker access to actionable insights",
+    ],
+  },
+];
+
 export default function Services() {
   const { lang } = useI18n();
-
-  if (lang === "en") {
-    return (
-      <div className="min-h-screen bg-slate-950 pb-24 font-sans text-slate-200">
-        <section className="bg-slate-950 text-white py-24 relative overflow-hidden border-b border-white/10">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">Solutions</h1>
-            <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-              Practical enterprise AI modules
-              <br className="hidden md:block" />
-              for knowledge, docs, support, workflows, and finance
-            </h2>
-            <p className="text-xl text-blue-100 leading-relaxed font-light max-w-4xl mx-auto">
-              Pick the right starting point by workflow and pain points. Modules can be adopted independently or combined into an end-to-end architecture.
-            </p>
-          </div>
-        </section>
-
-        <section className="py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {[
-                { icon: Database, name: "KnowledgeFlow", desc: "Searchable, governed enterprise knowledge hub." },
-                { icon: FileText, name: "DocuMind", desc: "OCR, extraction, classification, and document QA." },
-                { icon: MessageSquare, name: "ServicePilot", desc: "AI-assisted customer support and self-service." },
-                { icon: Zap, name: "WorkSprint", desc: "Faster summaries, drafts, reporting, and cross-system lookup." },
-                { icon: Workflow, name: "FlowOps", desc: "Workflow agents for intake, routing, tracking, approvals." },
-                { icon: ShieldCheck, name: "RiskLens", desc: "Compliance knowledge, clause comparison, risk hints." },
-                { icon: Camera, name: "FieldVision", desc: "Turn photos/inspections into structured, usable evidence." },
-                { icon: TrendingUp, name: "CommerceBoost", desc: "Sales & marketing acceleration for proposals and growth." },
-                { icon: Users, name: "TalentDesk", desc: "HR/admin efficiency for internal services and training." },
-                { icon: LineChart, name: "FinSight", desc: "Finance insights: validation, cross-checks, scenario analysis." },
-              ].map((s) => {
-                const Icon = s.icon;
-                return (
-                  <div key={s.name} className="bg-slate-900 p-8 rounded-3xl border border-white/10 hover:border-primary/40 transition-colors">
-                    <div className="w-12 h-12 bg-white/5 rounded-2xl flex items-center justify-center text-primary-light mb-6">
-                      <Icon size={24} />
-                    </div>
-                    <h3 className="text-xl font-black text-white mb-3">{s.name}</h3>
-                    <p className="text-slate-400 leading-relaxed">{s.desc}</p>
-                  </div>
-                );
-              })}
-            </div>
-
-            <div className="mt-14 text-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)]"
-              >
-                Talk to us <ArrowRight size={20} />
-              </Link>
-            </div>
-          </div>
-        </section>
-      </div>
-    );
-  }
+  const solutions = lang === "en" ? solutionsEn : solutionsZh;
 
   return (
     <div className="min-h-screen bg-slate-950 pb-24 font-sans text-slate-200">
@@ -187,14 +443,26 @@ export default function Services() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">
-            企業 AI 解決方案總覽
+            {lang === "en" ? "Solutions Overview" : "企業 AI 解決方案總覽"}
           </h1>
           <h2 className="text-4xl md:text-5xl font-black mb-6 leading-tight">
-            從知識、文件、客服、流程到財務，<br className="hidden md:block" />
-            打造真正能落地的企業 AI 能力
+            {lang === "en" ? (
+              <>
+                Build practical enterprise AI capabilities
+                <br className="hidden md:block" />
+                across knowledge, docs, support, workflows, and finance
+              </>
+            ) : (
+              <>
+                從知識、文件、客服、流程到財務，<br className="hidden md:block" />
+                打造真正能落地的企業 AI 能力
+              </>
+            )}
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed font-light max-w-4xl mx-auto">
-            我們將企業常見的 AI 導入需求整理為多種可實際落地的解決方案模組，協助企業依照自身痛點、部門需求與產業場景，快速找到合適的導入方向。各方案可單獨部署，也可依需求整合成更完整的企業 AI 應用架構。
+            {lang === "en"
+              ? "We package common enterprise AI needs into practical solution modules. Start from your pain points and departments, adopt modules independently, or combine them into an end-to-end architecture."
+              : "我們將企業常見的 AI 導入需求整理為多種可實際落地的解決方案模組，協助企業依照自身痛點、部門需求與產業場景，快速找到合適的導入方向。各方案可單獨部署，也可依需求整合成更完整的企業 AI 應用架構。"}
           </p>
         </div>
       </section>
@@ -202,9 +470,11 @@ export default function Services() {
       {/* Why Modular */}
       <section className="py-16 bg-slate-900 border-b border-white/10">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h3 className="text-2xl font-bold text-white mb-6">為什麼用模組化方案導入 AI？</h3>
+          <h3 className="text-2xl font-bold text-white mb-6">{lang === "en" ? "Why modular adoption?" : "為什麼用模組化方案導入 AI？"}</h3>
           <p className="text-lg text-slate-400 leading-relaxed">
-            企業在導入 AI 時，最重要的不是一次做得多大，而是先找到真正能產生效益的場景。透過模組化方案，企業可以更清楚理解每一種 AI 能力對應的問題、流程與預期效益，也更容易從小範圍驗證逐步擴大成果。
+            {lang === "en"
+              ? "The key is not doing everything at once—it’s starting where AI creates measurable impact. Modular solutions clarify what each capability solves and make it easier to validate in a small scope before scaling."
+              : "企業在導入 AI 時，最重要的不是一次做得多大，而是先找到真正能產生效益的場景。透過模組化方案，企業可以更清楚理解每一種 AI 能力對應的問題、流程與預期效益，也更容易從小範圍驗證逐步擴大成果。"}
           </p>
         </div>
       </section>
@@ -242,7 +512,9 @@ export default function Services() {
                       <p className="text-xl font-bold text-primary-light mb-6">{solution.title}</p>
                       
                       <div className="mb-8">
-                        <h4 className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-3">適合情境</h4>
+                        <h4 className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-3">
+                          {lang === "en" ? "Best fit scenarios" : "適合情境"}
+                        </h4>
                         <ul className="space-y-2">
                           {solution.scenarios.map((scenario, i) => (
                             <li key={i} className="flex items-start gap-2 text-slate-400 text-sm">
@@ -268,7 +540,7 @@ export default function Services() {
                         <div className="bg-slate-950 p-6 rounded-2xl border border-white/5">
                           <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <span className="w-2 h-5 bg-cyan-400 rounded-full"></span>
-                            核心應用
+                            {lang === "en" ? "Key applications" : "核心應用"}
                           </h4>
                           <div className="flex flex-wrap gap-2">
                             {solution.applications.map((app, i) => (
@@ -282,7 +554,7 @@ export default function Services() {
                         <div className="bg-slate-950 p-6 rounded-2xl border border-white/5">
                           <h4 className="text-lg font-bold text-white mb-4 flex items-center gap-2">
                             <span className="w-2 h-5 bg-accent rounded-full"></span>
-                            預期效益
+                            {lang === "en" ? "Expected impact" : "預期效益"}
                           </h4>
                           <ul className="space-y-3">
                             {solution.benefits.map((benefit, i) => (

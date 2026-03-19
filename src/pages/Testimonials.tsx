@@ -1,7 +1,10 @@
-import { siteContent } from "../data/content";
 import { Quote, PlayCircle } from "lucide-react";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 export default function Testimonials() {
+  const { lang } = useI18n();
+  const siteContent = useSiteContent();
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
       {/* Hero */}
@@ -10,13 +13,25 @@ export default function Testimonials() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">
-            客戶見證
+            {lang === "en" ? "Testimonials" : "客戶見證"}
           </h1>
           <h2 className="text-5xl font-black mb-6 leading-tight">
-            閱讀我們客戶的<br />真實見證
+            {lang === "en" ? (
+              <>
+                Real outcomes,
+                <br />
+                from real teams
+              </>
+            ) : (
+              <>
+                閱讀我們客戶的<br />真實見證
+              </>
+            )}
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed font-light max-w-3xl mx-auto">
-            了解宸希科技如何幫助企業實現 AI 創新並提升競爭力。
+            {lang === "en"
+              ? "See how ChenHsi helps teams adopt AI that improves execution and competitiveness."
+              : "了解宸希科技如何幫助企業實現 AI 創新並提升競爭力。"}
           </p>
         </div>
       </section>
@@ -49,7 +64,7 @@ export default function Testimonials() {
                     <div className="bg-white/5 p-6 rounded-2xl border border-white/10 mt-6">
                       <div className="flex items-center gap-2 text-primary-light font-bold mb-3">
                         <PlayCircle size={20} />
-                        <span>見證訪談摘要</span>
+                        <span>{lang === "en" ? "Interview summary" : "見證訪談摘要"}</span>
                       </div>
                       <p className="text-slate-400 leading-relaxed">
                         {testimonial.video_script}

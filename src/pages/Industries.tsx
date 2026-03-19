@@ -3,7 +3,7 @@ import { ArrowRight, Briefcase, Building, Stethoscope, ShoppingCart, Home, Scale
 import { Link } from 'react-router-dom';
 import { useI18n } from "../i18n/I18nProvider";
 
-const industries = [
+const industriesZh = [
   {
     id: 'manufacturing',
     icon: <Briefcase size={24} />,
@@ -228,65 +228,240 @@ const industries = [
   }
 ];
 
+const industriesEn = [
+  {
+    id: 'manufacturing',
+    icon: <Briefcase size={24} />,
+    title: 'Manufacturing',
+    subtitle: 'Use AI to accelerate shop-floor operations, knowledge transfer, and execution',
+    intro: 'Manufacturing operations rely on SOPs, equipment knowledge, maintenance experience, inspection logs, QA documents, and cross-team collaboration. When information is scattered across people, spreadsheets, forms, and documents, execution slows down and management quality suffers.',
+    painPoints: [
+      'SOPs, equipment knowledge, and maintenance know-how are scattered across teams',
+      'Inspections, maintenance, QA, and work orders require heavy manual consolidation',
+      'Procurement, orders, suppliers, and QA document management is complex',
+      'Slow feedback from the field; cross-team tracking is inefficient',
+      'High onboarding and knowledge transfer cost',
+      'Cost/procurement/operations data is interconnected and hard to validate quickly',
+    ],
+    aiDirections: 'Build equipment and operations knowledge bases, structure inspection photos and records, extract procurement/QA document fields, optimize work-order routing, and enhance cost analysis with cross-report validation.',
+    solutions: ['KnowledgeFlow', 'DocuMind', 'FlowOps', 'FieldVision', 'WorkSprint', 'FinSight'],
+    applications: ['SOP Q&A', 'Maintenance knowledge base', 'Inspection report generation', 'Photo-to-inspection descriptions', 'Meter/nameplate OCR', 'Work order creation & routing', 'Procurement/quote/order extraction', 'QA/supplier document organization', 'Safety policy Q&A', 'Training assistant', 'Cost analysis & validation', 'Cross-checks across ops/finance data'],
+    benefits: 'Improve knowledge retrieval speed, reduce documentation burden, accelerate field-to-office feedback loops, strengthen cross-team coordination, and enhance operational/financial validation.',
+  },
+  {
+    id: 'finance',
+    icon: <Landmark size={24} />,
+    title: 'Finance & Insurance',
+    subtitle: 'Improve document throughput, compliance readiness, and service quality with AI',
+    intro: 'Finance and insurance teams face heavy documentation, strict compliance, review workflows, and service-time pressure. As policies, claims, applications, clauses, and reports grow, AI becomes a practical lever to maintain quality while scaling efficiency.',
+    painPoints: [
+      'Rules, compliance, and product documents are numerous and frequently updated',
+      'Policy/claims/application reviews consume significant manpower',
+      'Support must answer high-frequency questions quickly with consistent quality',
+      'Clause comparison and missing-field checks are tedious',
+      'Audit prep, reporting, and case organization pressure is high',
+      'Model and operating-metric changes make impact hard to assess quickly',
+    ],
+    aiDirections: 'Adopt compliance knowledge Q&A, application extraction and validation, clause comparison and risk hints, support reply assistance, workflow intake/routing, and analytics for management reports and models.',
+    solutions: ['RiskLens', 'DocuMind', 'ServicePilot', 'WorkSprint', 'FlowOps', 'FinSight'],
+    applications: ['Compliance/rules Q&A', 'Doc summarization & clause comparison', 'Policy/claim extraction', 'Support reply assistance', 'Missing-field checks', 'Audit checklist assistant', 'Contract review assistance', 'Report summaries', 'Case intake workflow agents', 'Multi-doc cross-checks', 'Model scenario impact analysis', 'Narratives for management reports'],
+    benefits: 'Speed up reviews, strengthen compliance and audit support, improve service and case handling, and make financial/operational analysis faster and more reliable.',
+  },
+  {
+    id: 'healthcare',
+    icon: <Stethoscope size={24} />,
+    title: 'Healthcare',
+    subtitle: 'Streamline administration, knowledge lookup, and patient communication with AI',
+    intro: 'Beyond clinical work, healthcare providers handle heavy administration, processes, patient communication, and internal knowledge management. When information is scattered and workflows are complex, both frontline and back-office teams carry extra load.',
+    painPoints: [
+      'High volume of admin work and forms',
+      'Internal procedures and policies are distributed',
+      'Patients ask repetitive questions frequently',
+      'Multi-language communication and education materials take time',
+      'Meeting/case discussion notes are hard to summarize',
+      'Operations, cost, and budget data requires frequent consolidation',
+    ],
+    aiDirections: 'Create internal SOP/policy Q&A, digitize consent/forms with extraction, improve patient FAQ and scheduling support, summarize meetings, and assist with operational reporting and analysis.',
+    solutions: ['KnowledgeFlow', 'DocuMind', 'ServicePilot', 'WorkSprint', 'TalentDesk', 'FinSight'],
+    applications: ['Clinic SOP Q&A', 'Admin document organization', 'Patient FAQ assistant', 'Scheduling/support chat', 'Consent/form OCR', 'Meeting/case summaries', 'Training assistant', 'Multi-language assistance', 'Missing-field checks', 'Service/material Q&A', 'Ops & finance summaries', 'Budget/cost analysis assistance'],
+    benefits: 'Reduce admin rework, accelerate information lookup and responses, improve patient and internal communication, and strengthen operations/finance consolidation.',
+  },
+  {
+    id: 'retail',
+    icon: <ShoppingCart size={24} />,
+    title: 'Retail & E-commerce',
+    subtitle: 'Boost support efficiency, product information management, and conversion speed',
+    intro: 'Retail and e-commerce brands manage product info, campaign content, support replies, reviews, order inquiries, and store operations. More channels and faster updates increase the pressure on information maintenance and frontline service.',
+    painPoints: [
+      'High support volume and repetitive inquiries',
+      'Product info, FAQs, and campaign details are scattered',
+      'Copy and campaign content updates are frequent',
+      'Complaints and reviews take time to process',
+      'Store inspections and display records are inconsistent',
+      'Revenue/margin/campaign performance analysis requires frequent consolidation',
+    ],
+    aiDirections: 'Adopt product/support Q&A, reply assistance and ticket routing, copy generation, review summarization, store inspection structuring, and sales/finance analytics support.',
+    solutions: ['ServicePilot', 'CommerceBoost', 'KnowledgeFlow', 'FieldVision', 'WorkSprint', 'FinSight'],
+    applications: ['Product Q&A', 'AI support', 'FAQ bot', 'Product copy generation', 'EDM/social copy generation', 'Review summaries', 'Complaint categorization', 'Store photo inspection organization', 'Store SOP Q&A', 'Inventory/order query assistant', 'Revenue & P&L analysis', 'Campaign-to-finance linkage analysis'],
+    benefits: 'Faster responses, faster content production, improved store/e-commerce information workflows, and better revenue and operating analysis.',
+  },
+  {
+    id: 'realestate',
+    icon: <Home size={24} />,
+    title: 'Real Estate & Property',
+    subtitle: 'Accelerate asset info, site inspections, resident service, and documents with AI',
+    intro: 'Real estate, construction, and property management handle heavy contracts, asset data, engineering documents, inspection logs, resident service info, and repair workflows. When information is spread across people and systems, it creates bottlenecks and rework.',
+    painPoints: [
+      'Contracts, asset data, and engineering docs are large and fragmented',
+      'Site/property inspection records rely on manual consolidation',
+      'Resident/customer questions are highly repetitive',
+      'Repair/acceptance/case routing is complex',
+      'Sales proposals and materials take time to assemble',
+      'Project P&L and cashflow require continuous tracking and validation',
+    ],
+    aiDirections: 'Build asset/service knowledge bases, structure inspection data, summarize and compare contract/engineering docs, optimize repair ticket workflows, and support proposal and project finance analysis.',
+    solutions: ['DocuMind', 'FieldVision', 'ServicePilot', 'FlowOps', 'CommerceBoost', 'FinSight'],
+    applications: ['Contract summaries & clause checks', 'Asset data Q&A', 'Proposal generation', 'Customer Q&A assistant', 'Inspection report generation', 'Photo organization', 'Engineering OCR', 'Acceptance doc organization', 'Property SOP Q&A', 'Resident support assistant', 'Repair ticket routing', 'Project P&L/cashflow analysis assistance'],
+    benefits: 'Faster document handling, smoother inspections and repairs, and stronger project/operating analytics support.',
+  },
+  {
+    id: 'legal',
+    icon: <Scale size={24} />,
+    title: 'Legal / Accounting / Consulting',
+    subtitle: 'AI assistance for document analysis, drafting, and knowledge collaboration',
+    intro: 'Professional services teams handle large volumes of contracts, regulations, client documents, reports, and proposals—requiring speed, consistency, and traceability. When expertise and case history are hard to reuse, throughput is constrained.',
+    painPoints: [
+      'Reading and organizing contracts/regulations/accounting documents is time-consuming',
+      'Reports, proposals, and client drafts involve heavy rework',
+      'Client needs and case information is scattered',
+      'Expert knowledge and historical cases are hard to retrieve quickly',
+      'Financial models and report data require repeated validation',
+    ],
+    aiDirections: 'Adopt contract summarization and clause comparison, regulatory/case Q&A, client document organization, assisted drafting, knowledge bases, and finance model validation support.',
+    solutions: ['DocuMind', 'RiskLens', 'KnowledgeFlow', 'WorkSprint', 'CommerceBoost', 'FinSight'],
+    applications: ['Contract summaries & diffs', 'Clause risk hints', 'Regulatory/internal rules Q&A', 'Meeting summaries', 'Client doc organization', 'Proposal/report drafting', 'Tax/finance document organization', 'RFP/RFI response assistance', 'Client knowledge base assistant', 'Case progress summaries', 'Model validation & relationship analysis', 'Report consistency checks'],
+    benefits: 'Shorter document cycle times, faster report/proposal output, stronger knowledge reuse, and improved validation for finance/analysis documents.',
+  },
+  {
+    id: 'logistics',
+    icon: <Truck size={24} />,
+    title: 'Logistics / Warehousing / Transportation',
+    subtitle: 'Improve document flow, task routing, field records, and support lookup with AI',
+    intro: 'Logistics and warehousing teams handle orders, shipping docs, supplier files, multi-site SOPs, customer inquiries, and anomaly logs. High volume and fast cadence make manual consolidation a key bottleneck.',
+    painPoints: [
+      'Order/shipping documents and attachments are heavy and fragmented',
+      'Multi-site processes and status updates are hard to synchronize',
+      'Support frequently needs order/inventory/status information',
+      'Field anomalies and handover notes are hard to track',
+      'Task routing and approvals rely on manual coordination',
+      'Monthly reporting takes time and is error-prone',
+    ],
+    aiDirections: 'Structure shipping documents and attachments, enable cross-system queries, automate matching/corrections, route tasks and approvals, and provide fast reporting with validations.',
+    solutions: ['FlowOps', 'DocuMind', 'ServicePilot', 'WorkSprint', 'KnowledgeFlow', 'FinSight'],
+    applications: ['Shipping doc extraction', 'Order/inventory/status query assistant', 'Customer inquiry support bot', 'Anomaly summarization', 'Task routing & approvals', 'Multi-site SOP Q&A', 'Report summaries', 'Cross-system reconciliation', 'Supplier document checks', 'Evidence organization', 'KPI dashboards', 'Data quality validation'],
+    benefits: 'Higher throughput, faster cross-system coordination, better support response speed, improved tracking of anomalies, and more reliable reporting.',
+  },
+  {
+    id: 'education',
+    icon: <GraduationCap size={24} />,
+    title: 'Education & Training',
+    subtitle: 'Accelerate teaching operations, knowledge delivery, and student services',
+    intro: 'Education and training organizations manage course materials, policies, student Q&A, admin workflows, and internal training documentation. With frequent updates and multiple stakeholders, consistent information delivery is hard.',
+    painPoints: [
+      'Course/policy materials update frequently and are hard to keep consistent',
+      'High volume of repetitive student questions',
+      'Admin workflows across departments are fragmented',
+      'Training content preparation and summarization is time-consuming',
+      'Multi-channel communication increases workload',
+      'Reporting and operations data consolidation takes time',
+    ],
+    aiDirections: 'Build course and policy Q&A, automate material summarization, assist with content creation, support admin routing, and provide analytics summaries for operations.',
+    solutions: ['KnowledgeFlow', 'ServicePilot', 'WorkSprint', 'FlowOps', 'DocuMind', 'TalentDesk'],
+    applications: ['Student FAQ assistant', 'Course material Q&A', 'Policy Q&A', 'Material summarization', 'Email/announcement drafting', 'Ticket routing', 'Document extraction', 'Training assistant', 'Multi-language support', 'Knowledge search portal', 'Ops reporting summaries', 'Workflow reminders'],
+    benefits: 'Faster responses, more consistent information delivery, reduced admin workload, and improved learning/support experience.',
+  },
+  {
+    id: 'tech',
+    icon: <MonitorSmartphone size={24} />,
+    title: 'SaaS / Software',
+    subtitle: 'Boost engineering, operations, and customer success productivity with AI',
+    intro: 'Software organizations manage product documentation, support knowledge, incident workflows, release notes, and cross-tool context. When information is spread across ticketing, docs, repos, and chats, it slows down execution and support.',
+    painPoints: [
+      'Docs and knowledge bases are out of date and fragmented',
+      'Support and success teams need fast, consistent answers',
+      'Incident and workflow handoffs require manual summaries',
+      'Release notes, emails, and announcements require frequent writing',
+      'Cross-system queries (CRM/ERP/support/dev) are common',
+      'Analytics and KPI tracking requires consolidation',
+    ],
+    aiDirections: 'Adopt knowledge Q&A with citations, assist support replies, summarize incidents and meetings, generate drafts, and provide cross-system query agents and analytics summaries.',
+    solutions: ['KnowledgeFlow', 'ServicePilot', 'WorkSprint', 'FlowOps', 'DocuMind', 'FinSight'],
+    applications: ['Docs Q&A', 'Support reply assistant', 'Incident summaries', 'Meeting/action items', 'Release note drafts', 'Cross-system query agents', 'Ticket routing', 'Knowledge recommendations', 'Doc extraction', 'Analytics summaries', 'KPI dashboards', 'Workflow reminders'],
+    benefits: 'Faster execution, more consistent support, smoother handoffs, and better operational visibility.',
+  },
+  {
+    id: 'hr',
+    icon: <Users size={24} />,
+    title: 'HR Services / Recruiting',
+    subtitle: 'Speed up screening, internal services, and policy communication with AI',
+    intro: 'HR teams handle resumes, interviews, onboarding, policy communication, and internal requests. Repetitive questions and fragmented documents create rework and slow response time.',
+    painPoints: [
+      'Resume screening and summarization is time-consuming',
+      'Interview notes and hiring pipeline updates require manual effort',
+      'Onboarding materials are fragmented across files and tools',
+      'Policy questions are repetitive and inconsistent',
+      'Internal requests require manual routing and tracking',
+      'Training content preparation is heavy',
+    ],
+    aiDirections: 'Summarize resumes, structure interview notes, build policy Q&A, route internal requests, and summarize training materials for consistent internal services.',
+    solutions: ['TalentDesk', 'KnowledgeFlow', 'WorkSprint', 'FlowOps', 'DocuMind', 'ServicePilot'],
+    applications: ['Resume summaries', 'JD generation', 'Interview notes', 'Onboarding assistant', 'Policy Q&A', 'Internal request routing', 'Training summaries', 'Self-service portal', 'Document extraction', 'FAQ bot', 'Workflow reminders', 'Reporting summaries'],
+    benefits: 'Faster hiring support, better employee experience, reduced repetitive workload, and more consistent policy communication.',
+  },
+  {
+    id: 'public',
+    icon: <Landmark size={24} />,
+    title: 'Government / Associations / Nonprofits',
+    subtitle: 'Improve public service, documentation, and cross-department workflows with AI',
+    intro: 'Public-sector and nonprofit organizations handle heavy paperwork, policy documents, public inquiries, and cross-department coordination. Consistency, traceability, and speed are key.',
+    painPoints: [
+      'Policy and guideline documents are heavy and frequently updated',
+      'Public inquiries are repetitive and high volume',
+      'Cross-department workflows have many handoffs and delays',
+      'Case documentation and evidence packaging takes time',
+      'Meeting minutes and reports require repeated drafting',
+      'Data consolidation for reporting is slow and error-prone',
+    ],
+    aiDirections: 'Adopt policy Q&A, automate intake and routing, summarize cases and meetings, structure documents, and support analytics summaries for reporting.',
+    solutions: ['KnowledgeFlow', 'DocuMind', 'FlowOps', 'WorkSprint', 'ServicePilot', 'FinSight'],
+    applications: ['Public FAQ assistant', 'Policy Q&A', 'Intake/routing workflows', 'Case summaries', 'Document extraction', 'Evidence organization', 'Meeting minutes', 'Report drafting', 'Cross-system queries', 'Data validation', 'KPI reporting', 'Knowledge search portal'],
+    benefits: 'Faster public responses, smoother internal workflows, better traceability, and more reliable reporting.',
+  },
+  {
+    id: 'hospitality',
+    icon: <Utensils size={24} />,
+    title: 'Hospitality & Food Service',
+    subtitle: 'Improve service responses, multi-location SOPs, reviews, and field records with AI',
+    intro: 'Hospitality and service businesses face high volumes of booking/service inquiries, challenges in standardizing SOPs across branches, time-consuming review/complaint processing, training costs, and inconsistent field record quality.',
+    painPoints: [
+      'High volume of booking/service FAQs',
+      'Branch SOPs are difficult to standardize',
+      'Review and complaint processing takes time',
+      'Inspections and field records vary in quality',
+      'Multi-location training cost is high',
+      'Revenue, cost, and store performance analysis requires ongoing consolidation',
+    ],
+    aiDirections: 'Deploy booking/service assistants, summarize reviews and complaints, support SOP Q&A and training, structure inspection records and photos, and assist revenue/cost analysis.',
+    solutions: ['ServicePilot', 'KnowledgeFlow', 'FieldVision', 'CommerceBoost', 'TalentDesk', 'FinSight'],
+    applications: ['Booking/service Q&A', 'FAQ bot', 'Branch SOP Q&A', 'Inspection report generation', 'Review summaries', 'Complaint categorization', 'Training assistant', 'Marketing copy generation', 'Multi-language support', 'Photo record organization', 'Revenue/cost/store performance analysis assistance'],
+    benefits: 'Faster responses, more consistent service, better multi-location operations, lower review/complaint handling cost, and stronger store performance analysis.',
+  },
+];
+
 export default function Industries() {
   const { lang } = useI18n();
-  const [activeTab, setActiveTab] = useState(industries[0].id);
-
-  if (lang === "en") {
-    return (
-      <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
-        <section className="bg-slate-950 text-white py-24 relative overflow-hidden border-b border-white/10">
-          <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
-          <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-            <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 leading-[1.1]">
-              Industry-fit AI solutions
-            </h1>
-            <p className="text-xl md:text-2xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto font-light">
-              Workflows and information types vary by industry. We tailor adoption paths by department needs and real-world constraints.
-            </p>
-          </div>
-        </section>
-
-        <section className="py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {[
-                "Manufacturing",
-                "Finance & Insurance",
-                "Healthcare",
-                "Retail & E-commerce",
-                "Real Estate & Property",
-                "Legal & Consulting",
-                "Logistics & Transportation",
-                "Education & Training",
-                "SaaS & Software",
-                "HR & Recruitment",
-                "Government & NGO",
-                "Hospitality & Food Service",
-              ].map((name) => (
-                <div key={name} className="bg-slate-900 p-8 rounded-3xl border border-white/10">
-                  <h3 className="text-xl font-black text-white mb-3">{name}</h3>
-                  <p className="text-slate-400 leading-relaxed">
-                    We prioritize the most common pain points: knowledge access, document processing, customer support, workflows, and analytics.
-                  </p>
-                </div>
-              ))}
-            </div>
-
-            <div className="mt-14 text-center">
-              <Link
-                to="/contact"
-                className="inline-flex items-center gap-2 bg-primary text-white px-10 py-4 rounded-full font-bold text-lg hover:bg-primary-light transition-colors shadow-[0_0_15px_rgba(91,66,243,0.4)]"
-              >
-                Discuss your industry <ArrowRight size={20} />
-              </Link>
-            </div>
-          </div>
-        </section>
-      </div>
-    );
-  }
+  const industries = lang === "en" ? industriesEn : industriesZh;
+  const [activeTab, setActiveTab] = useState(industriesZh[0].id);
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans">
@@ -296,10 +471,12 @@ export default function Industries() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-5xl md:text-6xl font-black tracking-tight mb-8 leading-[1.1]">
-            依產業特性規劃適合的 AI 解決方案
+            {lang === "en" ? "Industry-fit AI solutions" : "依產業特性規劃適合的 AI 解決方案"}
           </h1>
           <p className="text-xl md:text-2xl text-blue-100 mb-10 leading-relaxed max-w-3xl mx-auto font-light">
-            不同產業有不同的流程、資訊型態與管理痛點，因此 AI 的導入方式也應有所不同。我們可依產業特性與部門需求，規劃最適合的 AI 解決方案組合。
+            {lang === "en"
+              ? "Workflows and information types vary by industry. We tailor adoption paths by department needs and real-world constraints."
+              : "不同產業有不同的流程、資訊型態與管理痛點，因此 AI 的導入方式也應有所不同。我們可依產業特性與部門需求，規劃最適合的 AI 解決方案組合。"}
           </p>
         </div>
       </section>
@@ -356,7 +533,7 @@ export default function Industries() {
                       <div className="bg-slate-950 p-6 rounded-2xl border border-white/5">
                         <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                           <span className="w-2 h-6 bg-red-500 rounded-full"></span>
-                          產業痛點
+                          {lang === "en" ? "Pain points" : "產業痛點"}
                         </h3>
                         <ul className="space-y-3">
                           {ind.painPoints.map((point, i) => (
@@ -371,7 +548,7 @@ export default function Industries() {
                       <div className="bg-slate-950 p-6 rounded-2xl border border-white/5">
                         <h3 className="text-xl font-bold text-white mb-4 flex items-center gap-2">
                           <span className="w-2 h-6 bg-primary-light rounded-full"></span>
-                          AI 可導入方向
+                          {lang === "en" ? "AI adoption directions" : "AI 可導入方向"}
                         </h3>
                         <p className="text-slate-400 leading-relaxed">
                           {ind.aiDirections}
@@ -382,10 +559,12 @@ export default function Industries() {
                     <div className="mb-12">
                       <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-2">
                         <span className="w-2 h-6 bg-cyan-400 rounded-full"></span>
-                        推薦方案與核心應用
+                        {lang === "en" ? "Recommended modules & key applications" : "推薦方案與核心應用"}
                       </h3>
                       <div className="mb-6">
-                        <h4 className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-3">推薦解決方案模組</h4>
+                        <h4 className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-3">
+                          {lang === "en" ? "Recommended solution modules" : "推薦解決方案模組"}
+                        </h4>
                         <div className="flex flex-wrap gap-2">
                           {ind.solutions.map((sol, i) => (
                             <span key={i} className="bg-primary/20 text-primary-light border border-primary/30 px-3 py-1.5 rounded-lg text-sm font-medium">
@@ -395,7 +574,9 @@ export default function Industries() {
                         </div>
                       </div>
                       <div>
-                        <h4 className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-3">核心應用場景</h4>
+                        <h4 className="text-sm text-slate-500 font-bold uppercase tracking-wider mb-3">
+                          {lang === "en" ? "Key application scenarios" : "核心應用場景"}
+                        </h4>
                         <div className="flex flex-wrap gap-2">
                           {ind.applications.map((app, i) => (
                             <span key={i} className="bg-white/5 text-slate-300 border border-white/10 px-3 py-1.5 rounded-lg text-sm">
@@ -409,7 +590,7 @@ export default function Industries() {
                     <div className="bg-gradient-to-br from-primary/20 to-accent/10 p-6 rounded-2xl border border-primary/30">
                       <h3 className="text-xl font-bold text-white mb-3 flex items-center gap-2">
                         <span className="w-2 h-6 bg-accent rounded-full"></span>
-                        預期效益
+                        {lang === "en" ? "Expected impact" : "預期效益"}
                       </h3>
                       <p className="text-slate-300 leading-relaxed">
                         {ind.benefits}
@@ -421,7 +602,7 @@ export default function Industries() {
                         to="/contact"
                         className="inline-flex justify-center items-center gap-2 bg-primary text-white px-8 py-4 rounded-full font-bold text-lg hover:bg-primary-light transition-all shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)] hover:-translate-y-1"
                       >
-                        洽詢{ind.title}專屬方案
+                        {lang === "en" ? `Discuss a ${ind.title} plan` : `洽詢${ind.title}專屬方案`}
                         <ArrowRight size={20} />
                       </Link>
                     </div>

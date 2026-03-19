@@ -1,8 +1,11 @@
-import { siteContent } from "../data/content";
 import { Users, Heart, Briefcase, MapPin, ArrowRight } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 export default function Careers() {
+  const { lang } = useI18n();
+  const siteContent = useSiteContent();
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
       {/* Hero */}
@@ -11,13 +14,25 @@ export default function Careers() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">
-            招募資訊
+            {lang === "en" ? "Careers" : "招募資訊"}
           </h1>
           <h2 className="text-5xl font-black mb-6 leading-tight">
-            加入宸希科技，<br />共創智能未來
+            {lang === "en" ? (
+              <>
+                Join ChenHsi,
+                <br />
+                build the AI future
+              </>
+            ) : (
+              <>
+                加入宸希科技，<br />共創智能未來
+              </>
+            )}
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed font-light max-w-3xl mx-auto">
-            我們提供成長空間與優渥福利，歡迎有志之士參與挑戰。
+            {lang === "en"
+              ? "We offer room to grow and strong benefits. If you like building practical AI, we’d love to meet you."
+              : "我們提供成長空間與優渥福利，歡迎有志之士參與挑戰。"}
           </p>
         </div>
       </section>
@@ -28,7 +43,7 @@ export default function Careers() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h3 className="text-3xl font-black text-white mb-6">
-                我們的文化與福利
+                {lang === "en" ? "Culture & benefits" : "我們的文化與福利"}
               </h3>
               <p className="text-lg text-slate-400 leading-relaxed mb-8">
                 {siteContent.careers.culture}
@@ -37,13 +52,17 @@ export default function Careers() {
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                 <div className="bg-white/5 p-6 rounded-2xl border border-white/10">
                   <Heart className="text-primary-light mb-4" size={32} />
-                  <h4 className="font-bold text-white mb-2">優渥福利</h4>
-                  <p className="text-slate-400 text-sm">彈性工時、年度健檢、優於勞基法的特休假。</p>
+                  <h4 className="font-bold text-white mb-2">{lang === "en" ? "Great benefits" : "優渥福利"}</h4>
+                  <p className="text-slate-400 text-sm">
+                    {lang === "en" ? "Flexible hours, annual health checks, and generous paid leave." : "彈性工時、年度健檢、優於勞基法的特休假。"}
+                  </p>
                 </div>
                 <div className="bg-accent/10 p-6 rounded-2xl border border-accent/20">
                   <Users className="text-cyan-400 mb-4" size={32} />
-                  <h4 className="font-bold text-white mb-2">持續學習</h4>
-                  <p className="text-slate-400 text-sm">提供進修補助、技術分享會與內部培訓課程。</p>
+                  <h4 className="font-bold text-white mb-2">{lang === "en" ? "Continuous learning" : "持續學習"}</h4>
+                  <p className="text-slate-400 text-sm">
+                    {lang === "en" ? "Learning stipend, tech talks, and internal training." : "提供進修補助、技術分享會與內部培訓課程。"}
+                  </p>
                 </div>
               </div>
             </div>
@@ -66,10 +85,10 @@ export default function Careers() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
-              職缺列表
+              {lang === "en" ? "Open roles" : "職缺列表"}
             </h2>
             <h3 className="text-4xl font-black text-white">
-              尋找您的下一個挑戰
+              {lang === "en" ? "Your next challenge" : "尋找您的下一個挑戰"}
             </h3>
           </div>
           
@@ -91,7 +110,7 @@ export default function Careers() {
                 </div>
                 
                 <Link to="/contact" className="shrink-0 inline-flex items-center gap-2 bg-primary/10 text-primary-light px-6 py-3 rounded-full font-bold hover:bg-primary hover:text-white transition-colors">
-                  應徵此職位
+                  {lang === "en" ? "Apply" : "應徵此職位"}
                   <ArrowRight size={16} />
                 </Link>
               </div>

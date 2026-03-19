@@ -108,7 +108,9 @@ export default function Contact() {
                   </div>
                   <div>
                     <h4 className="text-xl font-bold text-white mb-2">{lang === "en" ? "Address" : "公司地址"}</h4>
-                    <p className="text-slate-400">台灣臺北市南港區玉成街66之7號地下一層</p>
+                    <p className="text-slate-400">
+                      {lang === "en" ? "B1, No. 66-7, Yucheng St., Nangang Dist., Taipei, Taiwan" : "台灣臺北市南港區玉成街66之7號地下一層"}
+                    </p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -160,30 +162,30 @@ export default function Contact() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="company" className="block text-sm font-bold text-slate-300 mb-2">公司名稱</label>
-                      <input type="text" id="company" className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="您的公司" />
+                      <label htmlFor="company" className="block text-sm font-bold text-slate-300 mb-2">{lang === "en" ? "Company" : "公司名稱"}</label>
+                      <input type="text" id="company" className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder={lang === "en" ? "Your company" : "您的公司"} />
                     </div>
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-bold text-slate-300 mb-2">聯絡電話</label>
-                      <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder="您的電話" />
+                      <label htmlFor="phone" className="block text-sm font-bold text-slate-300 mb-2">{lang === "en" ? "Phone" : "聯絡電話"}</label>
+                      <input type="tel" id="phone" className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all" placeholder={lang === "en" ? "Your phone" : "您的電話"} />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="type" className="block text-sm font-bold text-slate-300 mb-2">需求類型</label>
+                    <label htmlFor="type" className="block text-sm font-bold text-slate-300 mb-2">{lang === "en" ? "Inquiry type" : "需求類型"}</label>
                     <div className="relative">
                       <select id="type" className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all appearance-none bg-slate-900">
-                        <option value="consulting">服務諮詢</option>
-                        <option value="partnership">合作洽談</option>
-                        <option value="other">其他</option>
+                        <option value="consulting">{lang === "en" ? "Consulting" : "服務諮詢"}</option>
+                        <option value="partnership">{lang === "en" ? "Partnership" : "合作洽談"}</option>
+                        <option value="other">{lang === "en" ? "Other" : "其他"}</option>
                       </select>
                       <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" size={20} />
                     </div>
                   </div>
 
                   <div>
-                    <label htmlFor="message" className="block text-sm font-bold text-slate-300 mb-2">詳細說明</label>
-                    <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none" placeholder="請簡述您的需求..."></textarea>
+                    <label htmlFor="message" className="block text-sm font-bold text-slate-300 mb-2">{lang === "en" ? "Message" : "詳細說明"}</label>
+                    <textarea id="message" rows={4} className="w-full px-4 py-3 rounded-xl border border-white/20 focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-all resize-none" placeholder={lang === "en" ? "Tell us what you need..." : "請簡述您的需求..."}></textarea>
                   </div>
 
                   {error && (
@@ -201,7 +203,7 @@ export default function Contact() {
                       <span className="w-6 h-6 border-2 border-white/30 border-t-white rounded-full animate-spin"></span>
                     ) : (
                       <>
-                        送出訊息
+                        {lang === "en" ? "Send message" : "送出訊息"}
                         <Send size={20} />
                       </>
                     )}
@@ -218,10 +220,10 @@ export default function Contact() {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
             <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
-              常見問答
+              {lang === "en" ? "FAQ" : "常見問答"}
             </h2>
             <h3 className="text-4xl font-black text-white">
-              為您解答疑惑
+              {lang === "en" ? "Answers to common questions" : "為您解答疑惑"}
             </h3>
           </div>
 

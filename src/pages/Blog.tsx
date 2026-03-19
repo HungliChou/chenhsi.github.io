@@ -1,8 +1,11 @@
-import { siteContent } from "../data/content";
 import { BookOpen, Calendar, Tag, ArrowRight, Download } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useI18n } from "../i18n/I18nProvider";
+import { useSiteContent } from "../i18n/useSiteContent";
 
 export default function Blog() {
+  const { lang } = useI18n();
+  const siteContent = useSiteContent();
   return (
     <div className="min-h-screen bg-slate-950 pb-24">
       {/* Hero */}
@@ -11,13 +14,15 @@ export default function Blog() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
           <h1 className="text-sm font-bold tracking-widest uppercase mb-4 text-blue-200">
-            資源與部落格
+            {lang === "en" ? "Resources & Blog" : "資源與部落格"}
           </h1>
           <h2 className="text-5xl font-black mb-6 leading-tight">
-            掌握 AI 技術趨勢
+            {lang === "en" ? "Stay ahead with AI insights" : "掌握 AI 技術趨勢"}
           </h2>
           <p className="text-xl text-blue-100 leading-relaxed font-light max-w-3xl mx-auto">
-            訪問宸希科技資源中心，獲取最新 AI 導入實戰案例、技術指南與行業報告，與專家共同探討智能轉型。
+            {lang === "en"
+              ? "Explore practical AI adoption notes, technical guides, and industry briefs—built for real-world transformation."
+              : "訪問宸希科技資源中心，獲取最新 AI 導入實戰案例、技術指南與行業報告，與專家共同探討智能轉型。"}
           </p>
         </div>
       </section>
@@ -26,9 +31,9 @@ export default function Blog() {
       <section className="py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-end mb-12">
-            <h3 className="text-3xl font-black text-white">最新文章與報告</h3>
+            <h3 className="text-3xl font-black text-white">{lang === "en" ? "Latest posts & reports" : "最新文章與報告"}</h3>
             <button className="hidden md:flex items-center gap-2 text-primary-light font-bold hover:text-primary-light transition-colors">
-              查看所有文章 <ArrowRight size={20} />
+              {lang === "en" ? "View all" : "查看所有文章"} <ArrowRight size={20} />
             </button>
           </div>
 
@@ -66,7 +71,7 @@ export default function Blog() {
                     ))}
                   </div>
                   <Link to="#" className="inline-flex items-center gap-2 text-primary-light font-bold hover:text-primary-light transition-colors mt-auto">
-                    閱讀全文 <ArrowRight size={16} />
+                    {lang === "en" ? "Read more" : "閱讀全文"} <ArrowRight size={16} />
                   </Link>
                 </div>
               </article>
@@ -83,14 +88,18 @@ export default function Blog() {
               <BookOpen size={200} />
             </div>
             <div className="relative z-10 max-w-2xl">
-              <h3 className="text-3xl font-black mb-4">下載《2026 企業 AI 導入白皮書》</h3>
+              <h3 className="text-3xl font-black mb-4">
+                {lang === "en" ? "Download: 2026 Enterprise AI Adoption Whitepaper" : "下載《2026 企業 AI 導入白皮書》"}
+              </h3>
               <p className="text-blue-100 text-lg leading-relaxed">
-                深入了解各行業如何利用 AI 技術實現數位轉型，包含完整的架構規劃建議與 ROI 評估模型。
+                {lang === "en"
+                  ? "A practical overview of how organizations adopt AI—architecture planning guidance and a simple ROI evaluation framework."
+                  : "深入了解各行業如何利用 AI 技術實現數位轉型，包含完整的架構規劃建議與 ROI 評估模型。"}
               </p>
             </div>
             <button className="relative z-10 shrink-0 inline-flex items-center gap-2 bg-slate-900 text-primary-light px-8 py-4 rounded-full font-bold text-lg hover:bg-white/5 transition-colors shadow-lg">
               <Download size={20} />
-              免費下載
+              {lang === "en" ? "Free download" : "免費下載"}
             </button>
           </div>
         </div>

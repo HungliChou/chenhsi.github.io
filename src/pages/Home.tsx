@@ -133,7 +133,7 @@ export default function Home() {
                   <BarChart3 size={24} />
                 </div>
                 <div>
-                  <p className="text-sm text-slate-400 font-medium">營運效率提升</p>
+                  <p className="text-sm text-slate-400 font-medium">{lang === "en" ? "Operational efficiency" : "營運效率提升"}</p>
                   <p className="text-2xl font-black text-white">+40%</p>
                 </div>
               </div>
@@ -157,30 +157,51 @@ export default function Home() {
             </div>
             <div className="order-1 lg:order-2">
               <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
-                企業為什麼需要真正可落地的 AI 導入
+                {lang === "en" ? "Why practical AI adoption matters" : "企業為什麼需要真正可落地的 AI 導入"}
               </h2>
               <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
-                聚焦企業最常見、也最值得優先改善的營運痛點
+                {lang === "en"
+                  ? "Focus on the operational pain points that matter most"
+                  : "聚焦企業最常見、也最值得優先改善的營運痛點"}
               </h3>
               <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                AI 的價值，不在於看起來先進，而在於是否真的能改善企業每天都在發生的問題。許多企業正在面對知識分散、文件量大、客服重工、流程斷點、會議與行政整理耗時，以及財務資料與報表彼此關聯複雜、人工難以及早發現錯誤等挑戰。
+                {lang === "en"
+                  ? "AI is valuable when it improves real work—not when it merely looks advanced. Most organizations struggle with scattered knowledge, heavy document load, repetitive support, workflow handoff gaps, time‑consuming admin work, and complex finance/report dependencies where small mistakes are hard to catch early."
+                  : "AI 的價值，不在於看起來先進，而在於是否真的能改善企業每天都在發生的問題。許多企業正在面對知識分散、文件量大、客服重工、流程斷點、會議與行政整理耗時，以及財務資料與報表彼此關聯複雜、人工難以及早發現錯誤等挑戰。"}
               </p>
               <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                我們協助企業從實際工作場景出發，規劃可快速落地的 AI 應用，讓 AI 不只是展示用途，而是能真正進入知識管理、文件流、客服、工作流與財務分析流程中，產生可持續的營運效益。
+                {lang === "en"
+                  ? "We start from the workflows you already run today and design adoption paths you can ship fast. AI becomes a working capability inside knowledge management, document flows, customer support, operations workflows, and finance analysis—creating sustained, measurable impact."
+                  : "我們協助企業從實際工作場景出發，規劃可快速落地的 AI 應用，讓 AI 不只是展示用途，而是能真正進入知識管理、文件流、客服、工作流與財務分析流程中，產生可持續的營運效益。"}
               </p>
               
               <div className="bg-slate-950 p-6 rounded-2xl border border-white/5 mb-8">
-                <h4 className="font-bold text-white mb-4">我們協助企業處理下列常見挑戰：</h4>
+                <h4 className="font-bold text-white mb-4">
+                  {lang === "en" ? "Common challenges we help solve:" : "我們協助企業處理下列常見挑戰："}
+                </h4>
                 <ul className="grid grid-cols-1 md:grid-cols-2 gap-3">
                   {[
-                    "文件量大、整理與檢查耗時",
-                    "知識分散，查找正確資訊不容易",
-                    "客服重複回覆造成大量人力消耗",
-                    "內部流程跨部門斷點多、追蹤不易",
-                    "會議、郵件、報表與行政工作重工高",
-                    "財務資料、模型與報表彼此關聯複雜",
-                    "小錯誤導致整體分析失真，難以及早發現",
-                    "需要在不大幅改變現有系統下導入 AI"
+                    ...(lang === "en"
+                      ? [
+                          "High document volume; organization and checks take too long",
+                          "Knowledge is scattered; finding the right answer is hard",
+                          "Repetitive support replies consume significant time",
+                          "Cross‑department handoffs are fragmented and hard to track",
+                          "Meetings, emails, reporting, and admin rework are heavy",
+                          "Finance data, models, and reports are tightly coupled and complex",
+                          "Small mistakes distort analysis and are hard to catch early",
+                          "Need AI without rewriting existing systems",
+                        ]
+                      : [
+                          "文件量大、整理與檢查耗時",
+                          "知識分散，查找正確資訊不容易",
+                          "客服重複回覆造成大量人力消耗",
+                          "內部流程跨部門斷點多、追蹤不易",
+                          "會議、郵件、報表與行政工作重工高",
+                          "財務資料、模型與報表彼此關聯複雜",
+                          "小錯誤導致整體分析失真，難以及早發現",
+                          "需要在不大幅改變現有系統下導入 AI",
+                        ]),
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
                       <CheckCircle2 className="text-cyan-400 shrink-0 mt-0.5" size={16} />
@@ -199,10 +220,20 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
-              我們的 AI 解決方案
+              {lang === "en" ? "Our solutions" : "我們的 AI 解決方案"}
             </h2>
             <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
-              從知識、文件、客服、流程到財務，<br />打造真正能落地的企業 AI 能力
+              {lang === "en" ? (
+                <>
+                  Build practical AI capabilities
+                  <br />
+                  across knowledge, docs, support, workflows, and finance
+                </>
+              ) : (
+                <>
+                  從知識、文件、客服、流程到財務，<br />打造真正能落地的企業 AI 能力
+                </>
+              )}
             </h3>
           </div>
 
@@ -225,7 +256,7 @@ export default function Home() {
           
           <div className="mt-12 text-center">
             <Link to="/services" className="inline-flex items-center gap-2 text-primary-light font-bold hover:text-white transition-colors">
-              查看完整解決方案介紹 <ArrowRight size={20} />
+              {lang === "en" ? "View all solutions" : "查看完整解決方案介紹"} <ArrowRight size={20} />
             </Link>
           </div>
         </div>
@@ -235,13 +266,15 @@ export default function Home() {
       <section className="py-24 bg-slate-950 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
-            適用產業
+            {lang === "en" ? "Industries" : "適用產業"}
           </h2>
           <h3 className="text-3xl md:text-4xl font-black text-white mb-6">
-            依產業特性規劃適合的 AI 解決方案
+            {lang === "en" ? "Industry-fit AI adoption paths" : "依產業特性規劃適合的 AI 解決方案"}
           </h3>
           <p className="text-lg text-slate-400 mb-12 max-w-3xl mx-auto leading-relaxed">
-            不同產業有不同的流程、資訊型態與管理痛點，因此 AI 的導入方式也應有所不同。我們可依產業特性與部門需求，規劃最適合的 AI 解決方案組合。
+            {lang === "en"
+              ? "Workflows and information types vary by industry. We tailor solutions by department needs and real-world constraints."
+              : "不同產業有不同的流程、資訊型態與管理痛點，因此 AI 的導入方式也應有所不同。我們可依產業特性與部門需求，規劃最適合的 AI 解決方案組合。"}
           </p>
           
           <div className="flex flex-wrap justify-center gap-4 mb-12">
@@ -253,7 +286,7 @@ export default function Home() {
           </div>
           
           <Link to="/industries" className="inline-flex items-center gap-2 text-primary-light font-bold hover:text-white transition-colors">
-            查看各產業詳細解決方案 <ArrowRight size={20} />
+            {lang === "en" ? "View industry details" : "查看各產業詳細解決方案"} <ArrowRight size={20} />
           </Link>
         </div>
       </section>
@@ -264,23 +297,45 @@ export default function Home() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="text-sm font-bold text-primary-light tracking-widest uppercase mb-3">
-                我們的導入方式
+                {lang === "en" ? "How we deliver" : "我們的導入方式"}
               </h2>
               <h3 className="text-3xl md:text-4xl font-black text-white mb-6 leading-tight">
-                從需求盤點到正式上線，<br />協助企業穩健推進 AI 導入
+                {lang === "en" ? (
+                  <>
+                    From discovery to go-live,
+                    <br />
+                    we deliver AI safely and steadily
+                  </>
+                ) : (
+                  <>
+                    從需求盤點到正式上線，<br />協助企業穩健推進 AI 導入
+                  </>
+                )}
               </h3>
               <p className="text-lg text-slate-400 mb-8 leading-relaxed">
-                我們可依企業目前的數位化程度、資料條件與導入目標，規劃適合的導入方式。無論是從單一部門試行、小範圍場景驗證，或是跨部門整合導入，我們都能協助企業以較低風險的方式逐步導入 AI。
+                {lang === "en"
+                  ? "We plan the right adoption path based on your digital maturity, data readiness, and target outcomes. Start small with a pilot, validate a key scenario, then scale across teams—without unnecessary risk."
+                  : "我們可依企業目前的數位化程度、資料條件與導入目標，規劃適合的導入方式。無論是從單一部門試行、小範圍場景驗證，或是跨部門整合導入，我們都能協助企業以較低風險的方式逐步導入 AI。"}
               </p>
               
               <div className="space-y-6">
-                {[
-                  { step: "1", title: "需求訪談與痛點盤點" },
-                  { step: "2", title: "AI 導入場景規劃" },
-                  { step: "3", title: "核心場景驗證定義" },
-                  { step: "4", title: "系統、資料與流程整合" },
-                  { step: "5", title: "正式上線與優化調整" }
-                ].map((item, i) => (
+                {(
+                  lang === "en"
+                    ? [
+                        { step: "1", title: "Discovery & pain-point mapping" },
+                        { step: "2", title: "Use-case planning" },
+                        { step: "3", title: "Define success criteria for validation" },
+                        { step: "4", title: "Integrate systems, data, and workflows" },
+                        { step: "5", title: "Go-live and continuous optimization" },
+                      ]
+                    : [
+                        { step: "1", title: "需求訪談與痛點盤點" },
+                        { step: "2", title: "AI 導入場景規劃" },
+                        { step: "3", title: "核心場景驗證定義" },
+                        { step: "4", title: "系統、資料與流程整合" },
+                        { step: "5", title: "正式上線與優化調整" },
+                      ]
+                ).map((item, i) => (
                   <div key={i} className="flex items-center gap-4 bg-slate-950 p-4 rounded-xl border border-white/5">
                     <div className="w-10 h-10 bg-primary/20 text-primary-light rounded-full flex items-center justify-center font-black border border-primary/30 shrink-0">
                       {item.step}
@@ -292,16 +347,26 @@ export default function Home() {
             </div>
             
             <div className="bg-slate-950 p-10 rounded-3xl border border-white/10">
-              <h3 className="text-2xl font-bold text-white mb-6">我們的導入特色</h3>
-              <p className="text-slate-400 mb-8">讓企業更容易啟動 AI，也更容易做出成果</p>
+              <h3 className="text-2xl font-bold text-white mb-6">{lang === "en" ? "What makes our approach work" : "我們的導入特色"}</h3>
+              <p className="text-slate-400 mb-8">{lang === "en" ? "Start faster and reach outcomes sooner" : "讓企業更容易啟動 AI，也更容易做出成果"}</p>
               <ul className="space-y-4">
-                {[
-                  "聚焦可快速落地的企業 AI 解決方案",
-                  "可依產業特性與部門需求彈性組合",
-                  "可整合既有文件、知識、流程與系統",
-                  "支援知識庫、文件智能、客服、Workflow Agent、財務分析等多元場景",
-                  "可從小型驗證逐步推進到正式上線"
-                ].map((feature, i) => (
+                {(
+                  lang === "en"
+                    ? [
+                        "Focus on use cases that ship fast and create measurable value",
+                        "Composable by industry and department needs",
+                        "Integrates with existing documents, knowledge, workflows, and systems",
+                        "Covers knowledge, documents, support, workflow agents, and finance analytics",
+                        "Start with a pilot and scale to production with confidence",
+                      ]
+                    : [
+                        "聚焦可快速落地的企業 AI 解決方案",
+                        "可依產業特性與部門需求彈性組合",
+                        "可整合既有文件、知識、流程與系統",
+                        "支援知識庫、文件智能、客服、Workflow Agent、財務分析等多元場景",
+                        "可從小型驗證逐步推進到正式上線",
+                      ]
+                ).map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-300">
                     <CheckCircle2 className="text-cyan-400 shrink-0 mt-1" size={20} />
                     <span className="leading-relaxed">{feature}</span>
@@ -319,24 +384,26 @@ export default function Home() {
         <div className="absolute inset-0 bg-gradient-to-br from-primary/40 to-accent/20 mix-blend-screen"></div>
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center text-white">
           <h2 className="text-4xl md:text-5xl font-black mb-8 leading-tight">
-            與我們一起找到最適合您的 AI 導入方式
+            {lang === "en" ? "Find the right AI adoption path" : "與我們一起找到最適合您的 AI 導入方式"}
           </h2>
           <p className="text-xl text-blue-100 mb-12 font-light">
-            如果您正在評估企業 AI 導入方向，無論是知識庫、文件處理、客服、自動化流程，或是財務分析與資料判讀相關應用，我們都能協助您從實際場景出發，規劃合適的解決方案。
+            {lang === "en"
+              ? "Whether you’re evaluating knowledge search, document automation, customer support, workflow agents, or finance analytics—we can help you plan from real scenarios and deliver a practical roadmap."
+              : "如果您正在評估企業 AI 導入方向，無論是知識庫、文件處理、客服、自動化流程，或是財務分析與資料判讀相關應用，我們都能協助您從實際場景出發，規劃合適的解決方案。"}
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/contact"
               className="inline-flex justify-center items-center gap-2 bg-primary text-white px-10 py-5 rounded-full font-bold text-xl hover:bg-primary-light transition-all shadow-[0_0_15px_rgba(91,66,243,0.4)] hover:shadow-[0_0_25px_rgba(91,66,243,0.6)] hover:-translate-y-1"
             >
-              預約 AI 導入諮詢
+              {lang === "en" ? "Book an AI consultation" : "預約 AI 導入諮詢"}
               <ArrowRight size={24} />
             </Link>
             <Link
               to="/industries"
               className="inline-flex justify-center items-center gap-2 bg-slate-900 text-primary-light border border-primary-light/30 px-10 py-5 rounded-full font-bold text-xl hover:bg-white/5 transition-all"
             >
-              洽詢產業解決方案
+              {lang === "en" ? "Explore industry solutions" : "洽詢產業解決方案"}
             </Link>
           </div>
         </div>

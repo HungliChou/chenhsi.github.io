@@ -14,20 +14,55 @@ export default function FAQ() {
   };
 
   const renderAnswer = (answer: string) => {
-    const parts = answer.split("\n").map((s) => s.trim()).filter(Boolean);
-    if (parts.length <= 1) return <p className="text-slate-400 leading-relaxed pt-4 border-t border-white/10">{answer}</p>;
+    const normalized = answer.replace(/\r\n/g, "\n").trim();
 
-    const [intro, ...rest] = parts;
-    const items = rest.map((line) => line.replace(/^\d+\.\s*/, ""));
+    // Case 1: answers already include newline-separated items.
+    const newlineParts = normalized.split("\n").map((s) => s.trim()).filter(Boolean);
+    if (newlineParts.length > 1) {
+      const [intro, ...rest] = newlineParts;
+      const items = rest.map((line) => line.replace(/^\d+\.\s*/, ""));
+      return (
+        <div className="pt-4 border-t border-white/10 text-slate-400 leading-relaxed space-y-3">
+          <p>{intro}</p>
+          <ol className="list-decimal pl-5 space-y-2">
+            {items.map((it, i) => (
+              <li key={i}>{it}</li>
+            ))}
+          </ol>
+        </div>
+      );
+    }
+
+    // Case 2: answers are one line but contain numbered items like " ...： 1. ... 2. ..."
+    const firstItemIdx = normalized.search(/\b1\.\s/);
+    if (firstItemIdx !== -1) {
+      const intro = normalized.slice(0, firstItemIdx).trim();
+      const listText = normalized.slice(firstItemIdx).trim();
+      const rawItems = listText
+        .split(/\s(?=\d+\.\s)/)
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((s) => s.replace(/^\d+\.\s*/, ""));
+
+      if (rawItems.length >= 2) {
+        return (
+          <div className="pt-4 border-t border-white/10 text-slate-400 leading-relaxed space-y-3">
+            {intro && <p>{intro}</p>}
+            <ol className="list-decimal pl-5 space-y-2">
+              {rawItems.map((it, i) => (
+                <li key={i}>{it}</li>
+              ))}
+            </ol>
+          </div>
+        );
+      }
+    }
+
+    // Fallback: preserve any embedded line breaks if present.
     return (
-      <div className="pt-4 border-t border-white/10 text-slate-400 leading-relaxed space-y-3">
-        <p>{intro}</p>
-        <ol className="list-decimal pl-5 space-y-2">
-          {items.map((it, i) => (
-            <li key={i}>{it}</li>
-          ))}
-        </ol>
-      </div>
+      <p className="text-slate-400 leading-relaxed pt-4 border-t border-white/10 whitespace-pre-line">
+        {normalized}
+      </p>
     );
   };
 

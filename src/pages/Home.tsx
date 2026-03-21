@@ -143,49 +143,49 @@ export default function Home() {
                 referrerPolicy="no-referrer"
               />
 
-              {/* Floating stats around hero image (desktop only — avoids overlap on narrow screens) */}
+              {/* Floating stats — compact on mobile, full size on lg */}
               <div
-                className="hidden lg:flex absolute -bottom-12 -left-6 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl items-center gap-4 animate-bounce max-w-[min(100%,16rem)]"
+                className="absolute -bottom-6 -left-1 sm:-bottom-8 sm:-left-3 lg:-bottom-12 lg:-left-6 flex bg-slate-900/80 backdrop-blur-md border border-white/10 p-2.5 sm:p-4 lg:p-5 xl:p-6 rounded-xl sm:rounded-2xl shadow-2xl items-center gap-2 sm:gap-3 lg:gap-4 animate-bounce max-w-[min(100%,9.5rem)] sm:max-w-[min(100%,13rem)] lg:max-w-[min(100%,16rem)]"
                 style={{ animationDuration: "3s" }}
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-accent/20 rounded-full flex items-center justify-center text-cyan-400">
-                  <BarChart3 size={24} />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-12 shrink-0 bg-accent/20 rounded-full flex items-center justify-center text-cyan-400">
+                  <BarChart3 className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" strokeWidth={2} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-snug">
+                  <p className="text-[10px] sm:text-xs lg:text-sm text-slate-400 font-medium leading-snug">
                     {lang === "en" ? "Operational efficiency" : "營運效率平均提升"}
                   </p>
-                  <p className="text-xl sm:text-2xl font-black text-white">+80%</p>
+                  <p className="text-base sm:text-lg lg:text-xl xl:text-2xl font-black text-white">+80%</p>
                 </div>
               </div>
 
               <div
-                className="hidden lg:flex absolute -top-12 left-1/4 xl:-right-4 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
+                className="absolute -top-5 left-[18%] sm:-top-8 sm:left-1/4 lg:-top-12 xl:left-auto xl:-right-4 flex bg-slate-900/80 backdrop-blur-md border border-white/10 p-2.5 sm:p-4 lg:p-5 xl:p-6 rounded-xl sm:rounded-2xl shadow-2xl items-center gap-2 sm:gap-3 lg:gap-4 animate-bounce max-w-[min(100%,9rem)] sm:max-w-[min(100%,12.5rem)] lg:max-w-[min(100%,15rem)]"
                 style={{ animationDuration: "3.4s", animationDelay: "0.4s" }}
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-primary/25 rounded-full flex items-center justify-center text-primary-light">
-                  <Gauge size={24} />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-12 shrink-0 bg-primary/25 rounded-full flex items-center justify-center text-primary-light">
+                  <Gauge className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" strokeWidth={2} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-snug">
+                  <p className="text-[10px] sm:text-xs lg:text-sm text-slate-400 font-medium leading-snug">
                     {lang === "en" ? "Analysis speed uplift" : "分析速度提升"}
                   </p>
-                  <p className="text-xl sm:text-2xl font-black text-white">+90%</p>
+                  <p className="text-base sm:text-lg lg:text-xl xl:text-2xl font-black text-white">+90%</p>
                 </div>
               </div>
 
               <div
-                className="hidden lg:flex absolute bottom-1/5 -right-6 xl:-right-8 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
+                className="absolute bottom-[12%] -right-2 sm:bottom-[14%] sm:-right-4 lg:bottom-1/5 lg:-right-6 xl:-right-8 flex bg-slate-900/80 backdrop-blur-md border border-white/10 p-2.5 sm:p-4 lg:p-5 xl:p-6 rounded-xl sm:rounded-2xl shadow-2xl items-center gap-2 sm:gap-3 lg:gap-4 animate-bounce max-w-[min(100%,9rem)] sm:max-w-[min(100%,12.5rem)] lg:max-w-[min(100%,15rem)]"
                 style={{ animationDuration: "3.8s", animationDelay: "0.8s" }}
               >
-                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400">
-                  <ShieldCheck size={24} />
+                <div className="w-8 h-8 sm:w-10 sm:h-10 lg:w-11 lg:h-12 shrink-0 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400">
+                  <ShieldCheck className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6" strokeWidth={2} />
                 </div>
                 <div className="min-w-0">
-                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-snug">
+                  <p className="text-[10px] sm:text-xs lg:text-sm text-slate-400 font-medium leading-snug">
                     {lang === "en" ? "Fewer errors" : "降低錯誤發生"}
                   </p>
-                  <p className="text-xl sm:text-2xl font-black text-white">+95%</p>
+                  <p className="text-base sm:text-lg lg:text-xl xl:text-2xl font-black text-white">+95%</p>
                 </div>
               </div>
             </div>

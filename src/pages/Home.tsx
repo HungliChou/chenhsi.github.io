@@ -137,9 +137,9 @@ export default function Home() {
             <div className="hidden lg:block relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-light to-accent rounded-3xl blur-3xl opacity-20"></div>
               <img
-                src="/ai-platform-mockup.png"
+                src="/ai-platform-mockup-large.png"
                 alt="Enterprise AI Platform Dashboard"
-                className="relative rounded-3xl shadow-2xl border border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500"
+                className="relative w-full h-auto rounded-3xl shadow-2xl border border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
 
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
 
               <div
-                className="absolute -top-4 left-1/3 xl:-right-4 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
+                className="absolute -top-4 left-1/4 xl:-right-4 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
                 style={{ animationDuration: "3.4s", animationDelay: "0.4s" }}
               >
                 <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-primary/25 rounded-full flex items-center justify-center text-primary-light">

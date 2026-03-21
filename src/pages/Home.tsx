@@ -139,7 +139,7 @@ export default function Home() {
               <img
                 src="/ai-platform-mockup-large.png"
                 alt="Enterprise AI Platform Dashboard"
-                className="relative w-full h-auto rounded-3xl shadow-2xl border border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500"
+                className="relative w-full h-auto rounded-3xl shadow-2xl border border-white/10 transform hover:scale-105 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
 

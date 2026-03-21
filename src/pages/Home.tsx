@@ -145,7 +145,7 @@ export default function Home() {
 
               {/* Floating stats around hero image */}
               <div
-                className="absolute -bottom-6 -left-6 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,16rem)]"
+                className="absolute -bottom-2 -left-6 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,16rem)]"
                 style={{ animationDuration: "3s" }}
               >
                 <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-accent/20 rounded-full flex items-center justify-center text-cyan-400">
@@ -160,7 +160,7 @@ export default function Home() {
               </div>
 
               <div
-                className="absolute -top-4 left-1/4 xl:-right-4 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
+                className="absolute -top-2 left-1/4 xl:-right-4 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
                 style={{ animationDuration: "3.4s", animationDelay: "0.4s" }}
               >
                 <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-primary/25 rounded-full flex items-center justify-center text-primary-light">
@@ -175,7 +175,7 @@ export default function Home() {
               </div>
 
               <div
-                className="absolute bottom-1/4 -right-6 xl:-right-8 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
+                className="absolute bottom-1/3 -right-6 xl:-right-8 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
                 style={{ animationDuration: "3.8s", animationDelay: "0.8s" }}
               >
                 <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400">

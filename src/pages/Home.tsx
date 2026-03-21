@@ -1,5 +1,20 @@
 import { Link } from "react-router-dom";
-import { ArrowRight, CheckCircle2, BarChart3, Database, ShieldCheck, Zap, FileText, MessageSquare, Workflow, Camera, TrendingUp, Users, LineChart } from "lucide-react";
+import {
+  ArrowRight,
+  CheckCircle2,
+  BarChart3,
+  Database,
+  ShieldCheck,
+  Zap,
+  FileText,
+  MessageSquare,
+  Workflow,
+  Camera,
+  TrendingUp,
+  Users,
+  LineChart,
+  Gauge,
+} from "lucide-react";
 import { useI18n } from "../i18n/I18nProvider";
 
 export default function Home() {
@@ -8,60 +23,60 @@ export default function Home() {
   const solutions =
     lang === "en"
       ? [
-          { name: "KnowledgeFlow", desc: "A governed knowledge entry point for SOPs, policies, FAQs, and training.", icon: Database },
-          { name: "DocuMind", desc: "Turn PDFs, scans, forms, and contracts into structured, usable data.", icon: FileText },
-          { name: "ServicePilot", desc: "Improve support efficiency and consistency with AI assistance.", icon: MessageSquare },
-          { name: "WorkSprint", desc: "Accelerate summaries, emails, reporting, and cross-system lookup.", icon: Zap },
-          { name: "FlowOps", desc: "Workflow agents for intake, routing, tracking, and approvals.", icon: Workflow },
-          { name: "RiskLens", desc: "Compliance knowledge, clause comparison, audits, and document risk hints.", icon: ShieldCheck },
-          { name: "FieldVision", desc: "Structure photos and inspection records to improve on-site operations.", icon: Camera },
-          { name: "CommerceBoost", desc: "Enable sales & marketing to move faster from insight to proposal.", icon: TrendingUp },
-          { name: "TalentDesk", desc: "Boost HR/admin efficiency for internal services and training.", icon: Users },
-          { name: "FinSight", desc: "Finance insights via validation, cross-checks, and scenario modeling.", icon: LineChart },
-        ]
+        { name: "KnowledgeFlow", desc: "A governed knowledge entry point for SOPs, policies, FAQs, and training.", icon: Database },
+        { name: "DocuMind", desc: "Turn PDFs, scans, forms, and contracts into structured, usable data.", icon: FileText },
+        { name: "ServicePilot", desc: "Improve support efficiency and consistency with AI assistance.", icon: MessageSquare },
+        { name: "WorkSprint", desc: "Accelerate summaries, emails, reporting, and cross-system lookup.", icon: Zap },
+        { name: "FlowOps", desc: "Workflow agents for intake, routing, tracking, and approvals.", icon: Workflow },
+        { name: "RiskLens", desc: "Compliance knowledge, clause comparison, audits, and document risk hints.", icon: ShieldCheck },
+        { name: "FieldVision", desc: "Structure photos and inspection records to improve on-site operations.", icon: Camera },
+        { name: "CommerceBoost", desc: "Enable sales & marketing to move faster from insight to proposal.", icon: TrendingUp },
+        { name: "TalentDesk", desc: "Boost HR/admin efficiency for internal services and training.", icon: Users },
+        { name: "FinSight", desc: "Finance insights via validation, cross-checks, and scenario modeling.", icon: LineChart },
+      ]
       : [
-          { name: "KnowledgeFlow 智識中樞", desc: "打造企業專屬的智慧知識入口，讓 SOP、制度、FAQ、培訓資料更容易被查詢與應用。", icon: Database },
-          { name: "DocuMind 文件智匯", desc: "讓 PDF、掃描件、表單、合約從人工整理，轉為可擷取、可比對的結構化資訊。", icon: FileText },
-          { name: "ServicePilot 智能客服引擎", desc: "透過 AI 提升客服效率、自助服務能力與回覆一致性，減少重複性問答負擔。", icon: MessageSquare },
-          { name: "WorkSprint 協作加速器", desc: "協助企業加快會議摘要、郵件撰寫、報表整理、公告撰寫與跨系統資訊查詢。", icon: Zap },
-          { name: "FlowOps 智動流程中台", desc: "將 AI 延伸到實際流程中，協助表單受理、工單分派、任務追蹤與審批流程優化。", icon: Workflow },
-          { name: "RiskLens 合規洞察台", desc: "支援企業處理法遵、內規、條款比對、稽核與文件風險提示工作。", icon: ShieldCheck },
-          { name: "FieldVision 現場視巡助手", desc: "將現場照片、巡檢紀錄、儀表資訊與影像證據整理流程導入 AI，提升現場管理效率。", icon: Camera },
-          { name: "CommerceBoost 業務成長助手", desc: "協助業務與行銷團隊更快整理資訊、產出內容、推進商機與準備提案。", icon: TrendingUp },
-          { name: "TalentDesk 人資行政助手", desc: "協助 HR、行政與內訓團隊提升履歷整理、制度溝通、訓練與內部服務效率。", icon: Users },
-          { name: "FinSight 財務洞察引擎", desc: "支援財務文件整理、模型試算、數據檢查、關聯分析與預測輔助，強化財務分析能力。", icon: LineChart },
-        ];
+        { name: "KnowledgeFlow 智識中樞", desc: "打造企業專屬的智慧知識入口，讓 SOP、制度、FAQ、培訓資料更容易被查詢與應用。", icon: Database },
+        { name: "DocuMind 文件智匯", desc: "讓 PDF、掃描件、表單、合約從人工整理，轉為可擷取、可比對的結構化資訊。", icon: FileText },
+        { name: "ServicePilot 智能客服引擎", desc: "透過 AI 提升客服效率、自助服務能力與回覆一致性，減少重複性問答負擔。", icon: MessageSquare },
+        { name: "WorkSprint 協作加速器", desc: "協助企業加快會議摘要、郵件撰寫、報表整理、公告撰寫與跨系統資訊查詢。", icon: Zap },
+        { name: "FlowOps 智動流程中台", desc: "將 AI 延伸到實際流程中，協助表單受理、工單分派、任務追蹤與審批流程優化。", icon: Workflow },
+        { name: "RiskLens 合規洞察台", desc: "支援企業處理法遵、內規、條款比對、稽核與文件風險提示工作。", icon: ShieldCheck },
+        { name: "FieldVision 現場視巡助手", desc: "將現場照片、巡檢紀錄、儀表資訊與影像證據整理流程導入 AI，提升現場管理效率。", icon: Camera },
+        { name: "CommerceBoost 業務成長助手", desc: "協助業務與行銷團隊更快整理資訊、產出內容、推進商機與準備提案。", icon: TrendingUp },
+        { name: "TalentDesk 人資行政助手", desc: "協助 HR、行政與內訓團隊提升履歷整理、制度溝通、訓練與內部服務效率。", icon: Users },
+        { name: "FinSight 財務洞察引擎", desc: "支援財務文件整理、模型試算、數據檢查、關聯分析與預測輔助，強化財務分析能力。", icon: LineChart },
+      ];
 
   const industries =
     lang === "en"
       ? [
-          "Manufacturing",
-          "Finance & Insurance",
-          "Healthcare",
-          "Retail & E-commerce",
-          "Real Estate & Property",
-          "Legal & Consulting",
-          "Logistics & Transportation",
-          "Education & Training",
-          "SaaS & Software",
-          "HR & Recruitment",
-          "Government & NGO",
-          "Hospitality & Food Service",
-        ]
+        "Manufacturing",
+        "Finance & Insurance",
+        "Healthcare",
+        "Retail & E-commerce",
+        "Real Estate & Property",
+        "Legal & Consulting",
+        "Logistics & Transportation",
+        "Education & Training",
+        "SaaS & Software",
+        "HR & Recruitment",
+        "Government & NGO",
+        "Hospitality & Food Service",
+      ]
       : [
-          "製造業",
-          "金融 / 保險",
-          "醫療 / 診所 / 健康服務",
-          "零售 / 電商 / 品牌",
-          "房地產 / 建設 / 物業管理",
-          "法律 / 會計 / 顧問服務",
-          "物流 / 倉儲 / 運輸",
-          "教育 / 補教 / 培訓",
-          "科技公司 / SaaS / 軟體服務",
-          "人資服務 / 招募 / 企業 HR",
-          "政府 / 公協會 / 非營利組織",
-          "旅宿 / 餐飲 / 服務業",
-        ];
+        "製造業",
+        "金融 / 保險",
+        "醫療 / 診所 / 健康服務",
+        "零售 / 電商 / 品牌",
+        "房地產 / 建設 / 物業管理",
+        "法律 / 會計 / 顧問服務",
+        "物流 / 倉儲 / 運輸",
+        "教育 / 補教 / 培訓",
+        "科技公司 / SaaS / 軟體服務",
+        "人資服務 / 招募 / 企業 HR",
+        "政府 / 公協會 / 非營利組織",
+        "旅宿 / 餐飲 / 服務業",
+      ];
 
   return (
     <div className="flex flex-col min-h-screen font-sans text-slate-200">
@@ -69,7 +84,7 @@ export default function Home() {
       <section className="relative bg-slate-950 overflow-hidden pt-20 pb-32">
         <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop')] bg-cover bg-center opacity-20 mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-gradient-to-br from-primary/30 via-slate-950 to-accent/20 mix-blend-screen"></div>
-        
+
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div className="text-white">
@@ -118,7 +133,7 @@ export default function Home() {
                 </Link>
               </div>
             </div>
-            
+
             <div className="hidden lg:block relative">
               <div className="absolute inset-0 bg-gradient-to-tr from-primary-light to-accent rounded-3xl blur-3xl opacity-20"></div>
               <img
@@ -127,14 +142,50 @@ export default function Home() {
                 className="relative rounded-3xl shadow-2xl border border-white/10 transform rotate-2 hover:rotate-0 transition-transform duration-500"
                 referrerPolicy="no-referrer"
               />
-              
-              <div className="absolute -bottom-6 -left-6 bg-slate-900/80 backdrop-blur-md border border-white/10 p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce" style={{ animationDuration: '3s' }}>
-                <div className="w-12 h-12 bg-accent/20 rounded-full flex items-center justify-center text-cyan-400">
+
+              {/* Floating stats around hero image */}
+              <div
+                className="absolute -bottom-6 -left-6 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,16rem)]"
+                style={{ animationDuration: "3s" }}
+              >
+                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-accent/20 rounded-full flex items-center justify-center text-cyan-400">
                   <BarChart3 size={24} />
                 </div>
-                <div>
-                  <p className="text-sm text-slate-400 font-medium">{lang === "en" ? "Operational efficiency" : "營運效率提升"}</p>
-                  <p className="text-2xl font-black text-white">+40%</p>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-snug">
+                    {lang === "en" ? "Operational efficiency" : "營運效率平均提升"}
+                  </p>
+                  <p className="text-xl sm:text-2xl font-black text-white">+80%</p>
+                </div>
+              </div>
+
+              <div
+                className="absolute -top-4 -right-2 xl:-right-4 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
+                style={{ animationDuration: "3.4s", animationDelay: "0.4s" }}
+              >
+                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-primary/25 rounded-full flex items-center justify-center text-primary-light">
+                  <Gauge size={24} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-snug">
+                    {lang === "en" ? "Analysis speed uplift" : "分析速度提升"}
+                  </p>
+                  <p className="text-xl sm:text-2xl font-black text-white">+90%</p>
+                </div>
+              </div>
+
+              <div
+                className="absolute bottom-1/4 -right-6 xl:-right-8 bg-slate-900/80 backdrop-blur-md border border-white/10 p-5 sm:p-6 rounded-2xl shadow-2xl flex items-center gap-4 animate-bounce max-w-[min(100%,15rem)]"
+                style={{ animationDuration: "3.8s", animationDelay: "0.8s" }}
+              >
+                <div className="w-11 h-11 sm:w-12 sm:h-12 shrink-0 bg-emerald-500/20 rounded-full flex items-center justify-center text-emerald-400">
+                  <ShieldCheck size={24} />
+                </div>
+                <div className="min-w-0">
+                  <p className="text-xs sm:text-sm text-slate-400 font-medium leading-snug">
+                    {lang === "en" ? "Fewer errors" : "降低錯誤發生"}
+                  </p>
+                  <p className="text-xl sm:text-2xl font-black text-white">+95%</p>
                 </div>
               </div>
             </div>
@@ -174,7 +225,7 @@ export default function Home() {
                   ? "We start from the workflows you already run today and design adoption paths you can ship fast. AI becomes a working capability inside knowledge management, document flows, customer support, operations workflows, and finance analysis—creating sustained, measurable impact."
                   : "我們協助企業從實際工作場景出發，規劃可快速落地的 AI 應用，讓 AI 不只是展示用途，而是能真正進入知識管理、文件流、客服、工作流與財務分析流程中，產生可持續的營運效益。"}
               </p>
-              
+
               <div className="bg-slate-950 p-6 rounded-2xl border border-white/5 mb-8">
                 <h4 className="font-bold text-white mb-4">
                   {lang === "en" ? "Common challenges we help solve:" : "我們協助企業處理下列常見挑戰："}
@@ -183,25 +234,25 @@ export default function Home() {
                   {[
                     ...(lang === "en"
                       ? [
-                          "High document volume; organization and checks take too long",
-                          "Knowledge is scattered; finding the right answer is hard",
-                          "Repetitive support replies consume significant time",
-                          "Cross‑department handoffs are fragmented and hard to track",
-                          "Meetings, emails, reporting, and admin rework are heavy",
-                          "Finance data, models, and reports are tightly coupled and complex",
-                          "Small mistakes distort analysis and are hard to catch early",
-                          "Need AI without rewriting existing systems",
-                        ]
+                        "High document volume; organization and checks take too long",
+                        "Knowledge is scattered; finding the right answer is hard",
+                        "Repetitive support replies consume significant time",
+                        "Cross‑department handoffs are fragmented and hard to track",
+                        "Meetings, emails, reporting, and admin rework are heavy",
+                        "Finance data, models, and reports are tightly coupled and complex",
+                        "Small mistakes distort analysis and are hard to catch early",
+                        "Need AI without rewriting existing systems",
+                      ]
                       : [
-                          "文件量大、整理與檢查耗時",
-                          "知識分散，查找正確資訊不容易",
-                          "客服重複回覆造成大量人力消耗",
-                          "內部流程跨部門斷點多、追蹤不易",
-                          "會議、郵件、報表與行政工作重工高",
-                          "財務資料、模型與報表彼此關聯複雜",
-                          "小錯誤導致整體分析失真，難以及早發現",
-                          "需要在不大幅改變現有系統下導入 AI",
-                        ]),
+                        "文件量大、整理與檢查耗時",
+                        "知識分散，查找正確資訊不容易",
+                        "客服重複回覆造成大量人力消耗",
+                        "內部流程跨部門斷點多、追蹤不易",
+                        "會議、郵件、報表與行政工作重工高",
+                        "財務資料、模型與報表彼此關聯複雜",
+                        "小錯誤導致整體分析失真，難以及早發現",
+                        "需要在不大幅改變現有系統下導入 AI",
+                      ]),
                   ].map((item, i) => (
                     <li key={i} className="flex items-start gap-2 text-slate-300 text-sm">
                       <CheckCircle2 className="text-cyan-400 shrink-0 mt-0.5" size={16} />
@@ -253,7 +304,7 @@ export default function Home() {
               );
             })}
           </div>
-          
+
           <div className="mt-12 text-center">
             <Link to="/services" className="inline-flex items-center gap-2 text-primary-light font-bold hover:text-white transition-colors">
               {lang === "en" ? "View all solutions" : "查看完整解決方案介紹"} <ArrowRight size={20} />
@@ -276,7 +327,7 @@ export default function Home() {
               ? "Workflows and information types vary by industry. We tailor solutions by department needs and real-world constraints."
               : "不同產業有不同的流程、資訊型態與管理痛點，因此 AI 的導入方式也應有所不同。我們可依產業特性與部門需求，規劃最適合的 AI 解決方案組合。"}
           </p>
-          
+
           <div className="flex flex-wrap justify-center gap-4 mb-12">
             {industries.map((industry, idx) => (
               <span key={idx} className="bg-white/5 text-slate-300 border border-white/10 px-6 py-3 rounded-full font-medium hover:bg-primary/20 hover:text-primary-light hover:border-primary/30 transition-colors cursor-default">
@@ -284,7 +335,7 @@ export default function Home() {
               </span>
             ))}
           </div>
-          
+
           <Link to="/industries" className="inline-flex items-center gap-2 text-primary-light font-bold hover:text-white transition-colors">
             {lang === "en" ? "View industry details" : "查看各產業詳細解決方案"} <ArrowRight size={20} />
           </Link>
@@ -317,24 +368,24 @@ export default function Home() {
                   ? "We plan the right adoption path based on your digital maturity, data readiness, and target outcomes. Start small with a pilot, validate a key scenario, then scale across teams—without unnecessary risk."
                   : "我們可依企業目前的數位化程度、資料條件與導入目標，規劃適合的導入方式。無論是從單一部門試行、小範圍場景驗證，或是跨部門整合導入，我們都能協助企業以較低風險的方式逐步導入 AI。"}
               </p>
-              
+
               <div className="space-y-6">
                 {(
                   lang === "en"
                     ? [
-                        { step: "1", title: "Discovery & pain-point mapping" },
-                        { step: "2", title: "Use-case planning" },
-                        { step: "3", title: "Define success criteria for validation" },
-                        { step: "4", title: "Integrate systems, data, and workflows" },
-                        { step: "5", title: "Go-live and continuous optimization" },
-                      ]
+                      { step: "1", title: "Discovery & pain-point mapping" },
+                      { step: "2", title: "Use-case planning" },
+                      { step: "3", title: "Define success criteria for validation" },
+                      { step: "4", title: "Integrate systems, data, and workflows" },
+                      { step: "5", title: "Go-live and continuous optimization" },
+                    ]
                     : [
-                        { step: "1", title: "需求訪談與痛點盤點" },
-                        { step: "2", title: "AI 導入場景規劃" },
-                        { step: "3", title: "核心場景驗證定義" },
-                        { step: "4", title: "系統、資料與流程整合" },
-                        { step: "5", title: "正式上線與優化調整" },
-                      ]
+                      { step: "1", title: "需求訪談與痛點盤點" },
+                      { step: "2", title: "AI 導入場景規劃" },
+                      { step: "3", title: "核心場景驗證定義" },
+                      { step: "4", title: "系統、資料與流程整合" },
+                      { step: "5", title: "正式上線與優化調整" },
+                    ]
                 ).map((item, i) => (
                   <div key={i} className="flex items-center gap-4 bg-slate-950 p-4 rounded-xl border border-white/5">
                     <div className="w-10 h-10 bg-primary/20 text-primary-light rounded-full flex items-center justify-center font-black border border-primary/30 shrink-0">
@@ -345,7 +396,7 @@ export default function Home() {
                 ))}
               </div>
             </div>
-            
+
             <div className="bg-slate-950 p-10 rounded-3xl border border-white/10">
               <h3 className="text-2xl font-bold text-white mb-6">{lang === "en" ? "What makes our approach work" : "我們的導入特色"}</h3>
               <p className="text-slate-400 mb-8">{lang === "en" ? "Start faster and reach outcomes sooner" : "讓企業更容易啟動 AI，也更容易做出成果"}</p>
@@ -353,19 +404,19 @@ export default function Home() {
                 {(
                   lang === "en"
                     ? [
-                        "Focus on use cases that ship fast and create measurable value",
-                        "Composable by industry and department needs",
-                        "Integrates with existing documents, knowledge, workflows, and systems",
-                        "Covers knowledge, documents, support, workflow agents, and finance analytics",
-                        "Start with a pilot and scale to production with confidence",
-                      ]
+                      "Focus on use cases that ship fast and create measurable value",
+                      "Composable by industry and department needs",
+                      "Integrates with existing documents, knowledge, workflows, and systems",
+                      "Covers knowledge, documents, support, workflow agents, and finance analytics",
+                      "Start with a pilot and scale to production with confidence",
+                    ]
                     : [
-                        "聚焦可快速落地的企業 AI 解決方案",
-                        "可依產業特性與部門需求彈性組合",
-                        "可整合既有文件、知識、流程與系統",
-                        "支援知識庫、文件智能、客服、Workflow Agent、財務分析等多元場景",
-                        "可從小型驗證逐步推進到正式上線",
-                      ]
+                      "聚焦可快速落地的企業 AI 解決方案",
+                      "可依產業特性與部門需求彈性組合",
+                      "可整合既有文件、知識、流程與系統",
+                      "支援知識庫、文件智能、客服、Workflow Agent、財務分析等多元場景",
+                      "可從小型驗證逐步推進到正式上線",
+                    ]
                 ).map((feature, i) => (
                   <li key={i} className="flex items-start gap-3 text-slate-300">
                     <CheckCircle2 className="text-cyan-400 shrink-0 mt-1" size={20} />
